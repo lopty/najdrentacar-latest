@@ -1,6 +1,0 @@
-{
-  "name": "Najd Rent a Car Dubai",
-  "description": "Premium car rental at Dubai International Airport (DXB) and across the UAE with instant booking, zero deposit options, and seamless mobile experience.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

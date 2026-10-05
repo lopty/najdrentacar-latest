@@ -1,113 +1,75 @@
 import React from 'react';
-import { CurrencyCode } from '../types/rental';
-import { CURRENCY_RATES } from '../utils/currency';
+import { Menu, Phone } from 'lucide-react';
 import { NajdLogo } from './NajdLogo';
-import { Globe, Phone, CalendarCheck2 } from 'lucide-react';
+import { BUSINESS, telLink, whatsappLink } from '../site/business';
 
-interface HeaderProps {
-  currency: CurrencyCode;
-  onCurrencyChange: (currency: CurrencyCode) => void;
-  onOpenMyBookings: () => void;
-  savedBookingsCount: number;
-  onBookNowClick?: () => void;
-}
+const NAV = [
+  { href: '/fleet/', label: 'Fleet' },
+  { href: '/economy-car-rental-dubai/', label: 'Economy' },
+  { href: '/suv-rental-dubai/', label: 'SUV' },
+  { href: '/luxury-car-rental-dubai/', label: 'Luxury' },
+  { href: '/monthly-car-rental-dubai/', label: 'Monthly' },
+  { href: '/guides/', label: 'Guides' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
+];
 
-export const Header: React.FC<HeaderProps> = ({
-  currency,
-  onCurrencyChange,
-  onOpenMyBookings,
-  savedBookingsCount,
-  onBookNowClick,
-}) => {
+export const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 text-slate-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
-        
-        {/* Brand Logo - Scaled responsibly for mobile viewports */}
-        <a href="/" className="flex items-center shrink-0 py-1" aria-label="Najd Rent A Car LLC">
-          <NajdLogo variant="light" height={36} className="sm:hidden" />
-          <NajdLogo variant="light" height={42} className="hidden sm:block" />
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 text-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+        <a href="/" className="flex items-center shrink-0 py-1" aria-label="Najd Rent a Car home">
+          <NajdLogo variant="light" height={38} />
         </a>
 
-        {/* Clean Center Navigation Links (Desktop only) */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
-          <a href="#fleet-section" className="hover:text-red-700 transition-colors">
-            Fleet
-          </a>
-          <a href="#airport-guide" className="hover:text-red-700 transition-colors">
-            Airport Delivery
-          </a>
-          <a href="#dubai-rules" className="hover:text-red-700 transition-colors">
-            Driving Rules
-          </a>
-          <a href="#about-us" className="hover:text-red-700 transition-colors">
-            Contact
-          </a>
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href} className="hover:text-red-700 transition-colors">
+              {item.label}
+            </a>
+          ))}
         </nav>
 
-        {/* Right Actions Bar - Responsive with zero clipping */}
-        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-          
-          {/* Phone Link (Desktop) */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
-            href="tel:+971524560201"
+            href={telLink}
             className="hidden xl:flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-red-700 transition-colors"
           >
-            <div className="w-7 h-7 rounded-full bg-red-50 flex items-center justify-center text-red-700">
+            <span className="w-7 h-7 rounded-full bg-red-50 flex items-center justify-center text-red-700">
               <Phone className="w-3.5 h-3.5" />
-            </div>
-            <span>+971 52 456 0201</span>
+            </span>
+            <span>{BUSINESS.phoneDisplay}</span>
+          </a>
+          <a
+            href={whatsappLink('Hello Najd Rent a Car, I would like to rent a car in Dubai.')}
+            className="px-3.5 sm:px-5 py-2 text-xs font-bold text-white bg-[#C5221F] hover:bg-[#A81B18] rounded-lg transition-colors uppercase tracking-wider whitespace-nowrap"
+          >
+            Book on WhatsApp
           </a>
 
-          {/* Currency Switcher */}
-          <div className="relative flex items-center">
-            <div className="flex items-center px-2 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-semibold text-slate-700 transition-colors">
-              <Globe className="w-3.5 h-3.5 mr-1 text-slate-400 shrink-0" />
-              <select
-                aria-label="Select Currency"
-                value={currency}
-                onChange={(e) => onCurrencyChange(e.target.value as CurrencyCode)}
-                className="bg-transparent font-bold cursor-pointer outline-none border-none p-0 focus:ring-0 text-xs text-slate-900"
-              >
-                {(Object.keys(CURRENCY_RATES) as CurrencyCode[]).map((code) => (
-                  <option key={code} value={code} className="bg-white text-slate-900">
-                    {code}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* My Bookings (Icon button on mobile, with text on desktop) */}
-          <button
-            type="button"
-            onClick={onOpenMyBookings}
-            className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-slate-700 border border-slate-200 bg-white rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
-            title="My Bookings"
-          >
-            <CalendarCheck2 className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            <span className="hidden md:inline">Bookings</span>
-            {savedBookingsCount > 0 && (
-              <span className="font-bold text-red-700 tabular-nums">
-                ({savedBookingsCount})
-              </span>
-            )}
-          </button>
-
-          {/* Primary Action: Book Now - Red button */}
-          <button
-            type="button"
-            onClick={onBookNowClick || (() => {
-              const el = document.getElementById('fleet-section');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            })}
-            className="px-3.5 sm:px-5 py-2 text-xs font-bold text-white bg-[#C5221F] hover:bg-[#A81B18] active:scale-95 rounded-lg transition-all shadow-sm shadow-red-700/20 cursor-pointer uppercase tracking-wider shrink-0 whitespace-nowrap"
-          >
-            Book Now
-          </button>
-
+          {/* Mobile menu: plain <details>, works without JavaScript */}
+          <details className="lg:hidden relative group">
+            <summary
+              className="list-none w-9 h-9 flex items-center justify-center rounded-lg border border-slate-200 text-slate-700 cursor-pointer [&::-webkit-details-marker]:hidden"
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5" />
+            </summary>
+            <nav
+              aria-label="Mobile"
+              className="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-xl p-2 flex flex-col text-sm font-semibold text-slate-700"
+            >
+              {NAV.map((item) => (
+                <a key={item.href} href={item.href} className="px-3 py-2.5 rounded-lg hover:bg-slate-50 hover:text-red-700">
+                  {item.label}
+                </a>
+              ))}
+              <a href={telLink} className="px-3 py-2.5 rounded-lg hover:bg-slate-50 text-red-700">
+                Call {BUSINESS.phoneDisplay}
+              </a>
+            </nav>
+          </details>
         </div>
-
       </div>
     </header>
   );
