@@ -1,0 +1,17 @@
+# Render Blueprint: static site. Render builds the pages and serves the dist/ folder.
+services:
+  - type: web
+    name: najd-rent-a-car
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=604800
