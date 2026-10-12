@@ -1,11 +1,11 @@
 import React from 'react';
 import { BadgeCheck, ChevronRight, MessageCircle, Phone, Users, Briefcase, Settings2 } from 'lucide-react';
 import { BUSINESS, RATE_NOTE, aed, telLink, whatsappLink } from '../site/business';
-import { Car, carImage, carName, carPath } from '../data/cars';
+import { Car, carImage, carName, rateSummary, carPath } from '../data/cars';
 import type { Crumb } from '../site/schema';
 
 export const Container: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>
+  <div className={`site-container mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>
 );
 
 export const Breadcrumbs: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => (
@@ -39,7 +39,7 @@ export const PageHeader: React.FC<{
   lead?: string;
   children?: React.ReactNode;
 }> = ({ crumbs, eyebrow, h1, lead, children }) => (
-  <section className="bg-white border-b border-slate-200">
+  <section className="page-masthead">
     <Container className="py-8 sm:py-12">
       <Breadcrumbs crumbs={crumbs} />
       {eyebrow && (
@@ -53,7 +53,7 @@ export const PageHeader: React.FC<{
 );
 
 export const H2: React.FC<{ children: React.ReactNode; id?: string }> = ({ children, id }) => (
-  <h2 id={id} className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-4">
+  <h2 id={id} className="section-title">
     {children}
   </h2>
 );
@@ -104,8 +104,9 @@ export const CallButton: React.FC<{ className?: string }> = ({ className = '' })
 export const RateLine: React.FC<{ car: Car }> = ({ car }) =>
   car.rates ? (
     <div className="text-right">
-      <div className="text-lg font-bold text-slate-900 tabular-nums leading-tight">{aed(car.rates.day)}</div>
-      <span className="text-[11px] text-slate-500 block mt-0.5">per day</span>
+      {car.variants && car.variants.length > 1 && <span className="text-[10px] uppercase tracking-wider text-slate-500">From</span>}
+      <div className="text-lg font-bold text-slate-900 tabular-nums leading-tight">{aed(car.rates.day ?? car.rates.month)}</div>
+      <span className="text-[11px] text-slate-500 block mt-0.5">{car.rates.day ? "per day" : "per month"}</span>
     </div>
   ) : (
     <div className="text-right">
@@ -114,76 +115,32 @@ export const RateLine: React.FC<{ car: Car }> = ({ car }) =>
   );
 
 export const CarCard: React.FC<{ car: Car }> = ({ car }) => (
-  <article className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all p-4 sm:p-5 flex flex-col justify-between">
-    <div>
-      <a
-        href={carPath(car)}
-        className="w-full h-44 sm:h-48 bg-white rounded-xl overflow-hidden flex items-center justify-center p-3 border border-slate-100"
-      >
-        <img
-          src={carImage(car)}
-          alt={`${carName(car)} for rent in Dubai`}
-          loading="lazy"
-          width={480}
-          height={320}
-          className="max-h-full max-w-full object-contain"
-        />
-      </a>
-      <div className="mt-4 flex items-start justify-between gap-3">
-        <div>
-          <span className="text-xs font-semibold text-[#C5221F] tracking-wider uppercase block">{car.brand}</span>
-          <h3 className="text-lg font-semibold text-slate-900 leading-snug">
-            <a href={carPath(car)} className="hover:text-[#C5221F] transition-colors">
-              {car.brand === 'Range Rover' ? carName(car) : car.model}
-            </a>
-          </h3>
-          <span className="text-xs text-slate-500">{car.label}</span>
-        </div>
-        <RateLine car={car} />
-      </div>
-      <ul className="flex flex-wrap gap-x-4 gap-y-1 my-4 pt-3 border-t border-slate-100 text-xs text-slate-600">
-        {car.seats && (
-          <li className="flex items-center gap-1.5">
-            <Users className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
-            {car.seatsText ?? car.seats} seats
-          </li>
-        )}
-        {car.bags && (
-          <li className="flex items-center gap-1.5">
-            <Briefcase className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
-            {car.bags} bags
-          </li>
-        )}
-        <li className="flex items-center gap-1.5">
-          <Settings2 className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
-          {car.transmission}
-        </li>
-      </ul>
-      {car.rates && (
-        <p className="text-xs text-slate-500 mb-4">
-          {aed(car.rates.week)} per week · {aed(car.rates.month)} per month
-        </p>
-      )}
+  <article className="fleet-card">
+    <div className="fleet-card-heading">
+      <span className="fleet-brand">{car.brand}</span>
+      <h3><a href={carPath(car)}>{car.brand === 'Range Rover' ? carName(car) : car.model}</a></h3>
+      <div className="fleet-tags"><span>{car.bodyType}</span>{car.modelYear && <span>{car.variants && car.variants.length > 1 ? car.variants.map(v => v.year).join(' / ') : car.modelYear}</span>}<span>{car.tags.includes('luxury') ? 'Luxury collection' : 'Monthly rental'}</span></div>
     </div>
-    <div className="grid grid-cols-2 gap-2.5">
-      <a
-        href={carPath(car)}
-        className="py-2.5 px-3 rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold text-center transition-colors"
-      >
-        View details
-      </a>
-      <a
-        href={whatsappLink(`Hello Najd Rent a Car, I would like to rent the ${carName(car)}.`)}
-        className="py-2.5 px-3 rounded-xl bg-[#C5221F] hover:bg-[#A81B18] text-white text-xs font-semibold text-center transition-colors"
-      >
-        Book now
-      </a>
+    <a href={carPath(car)} className="fleet-image">
+      <img src={carImage(car)} alt={carName(car) + ' for rent in Dubai'} loading="lazy" width={600} height={400} />
+    </a>
+    <ul className="fleet-specs">
+      {car.seats && <li><Users aria-hidden="true" /><span>{car.seatsText ?? car.seats} seats</span></li>}
+      {car.bags && <li><Briefcase aria-hidden="true" /><span>{car.bags} bags</span></li>}
+      <li><Settings2 aria-hidden="true" /><span>{car.transmission}</span></li>
+    </ul>
+    <div className="fleet-pricing">
+      {car.rates ? <>
+        <div><small>{car.variants && car.variants.length > 1 ? 'From · ' : ''}{car.rates.day ? 'Daily' : 'Monthly'}</small><strong>{aed(car.rates.day ?? car.rates.month)}</strong></div>
+        <div><small>{car.rates.day ? 'Monthly' : 'Per month · 5+ months'}</small><strong>{car.rates.day ? aed(car.rates.month) : car.rates.longTerm ? aed(car.rates.longTerm) : 'Ask us'}</strong></div>
+      </> : <div><small>Tailored to your dates</small><strong>Request a quote</strong></div>}
     </div>
+    <div className="fleet-actions"><a href={carPath(car)}>Explore car <span aria-hidden="true">↗</span></a><a href={whatsappLink('Hello Najd Rent a Car, I would like to rent the ' + carName(car) + '.')} className="fleet-book">Book now <ChevronRight aria-hidden="true" /></a></div>
   </article>
 );
 
 export const CarGrid: React.FC<{ cars: Car[] }> = ({ cars }) => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+  <div className="fleet-grid">
     {cars.map((car) => (
       <CarCard key={car.slug} car={car} />
     ))}
@@ -210,7 +167,7 @@ export interface LinkItem {
 }
 
 export const LinkCards: React.FC<{ links: LinkItem[] }> = ({ links }) => (
-  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+  <ul className="editorial-links grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
     {links.map((l) => (
       <li key={l.href}>
         <a

@@ -14,7 +14,7 @@ export function renderRoute(route: Route): string {
 
 /** Data for llms.txt, kept here so it is generated from the same sources as the pages. */
 export const LLMS = {
-  cars: CARS.map((car) => ({ name: carName(car), path: carPath(car), label: car.label, seats: car.seatsText ?? car.seats, rates: car.rates })),
+  cars: CARS.map((car) => ({ name: carName(car), path: carPath(car), label: car.label, seats: car.seatsText ?? car.seats, modelYear: car.modelYear, variants: car.variants, rates: car.rates })),
   categories: CATEGORIES.map((c) => ({ name: c.h1, path: categoryPath(c.slug), description: c.description })),
   guides: GUIDES.map((g) => ({ name: g.h1, path: guidePath(g.slug), description: g.description })),
 };

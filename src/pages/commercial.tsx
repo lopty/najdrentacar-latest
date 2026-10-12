@@ -1,7 +1,8 @@
+import { BadgeCheck } from 'lucide-react';
 import React from 'react';
 import { BUSINESS, HOURS_SENTENCE, aed } from '../site/business';
 import type { Crumb } from '../site/schema';
-import { CARS, Car, carImage, carName, carPath, carsWithRates } from '../data/cars';
+import { CARS, Car, carImage, carName, rateSummary, carPath, carsWithRates } from '../data/cars';
 import { CATEGORIES, CategoryPage, MAIN_CATEGORY_SLUGS, TERM_CATEGORY_SLUGS, categoriesForCar, categoryPath, getCategory } from '../content/categories';
 import { GUIDES, getGuide, guidePath } from '../content/guides';
 import {
@@ -49,7 +50,7 @@ export const HOME_FAQS = [
 ];
 
 export const HomePage: React.FC = () => {
-  const featured = ['nissan-sunny', 'mitsubishi-asx', 'mitsubishi-xpander', 'audi-a6', 'cadillac-escalade', 'range-rover-vogue'].map(
+  const featured = ['range-rover-vogue', 'cadillac-escalade', 'chevrolet-suburban', 'audi-a6', 'mitsubishi-asx-2027', 'mitsubishi-destinator-2027'].map(
     (slug) => CARS.find((c) => c.slug === slug)!,
   );
   const mainCats = MAIN_CATEGORY_SLUGS.map(getCategory);
@@ -67,66 +68,36 @@ export const HomePage: React.FC = () => {
   ].map(getGuide);
   return (
     <>
-      <section className="relative overflow-hidden bg-slate-900">
-        <img
-          src="/images/najd-escalade-fleet.webp"
-          alt="Black Cadillac Escalade SUVs from the Najd Rent a Car fleet in Dubai"
-          width={1280}
-          height={852}
-          className="absolute inset-0 w-full h-full object-cover opacity-55"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent" />
-        <Container className="relative py-16 sm:py-24">
-          <div className="max-w-2xl">
-            <span className="text-xs font-semibold text-red-300 uppercase tracking-wider">
-              Licensed since {BUSINESS.foundingYear} · Licence {BUSINESS.licenceNumber}
-            </span>
-            <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mt-3">Car Rental in Dubai</h1>
-            <p className="text-base sm:text-lg text-slate-200 mt-4 leading-relaxed">
-              Najd Rent a Car is a licensed Dubai car rental company based in Al Quoz. We rent economy cars, SUVs and luxury
-              vehicles by the day, week, month and year, self-drive or with a chauffeur. We deliver cars to you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 mt-7">
-              <WhatsAppButton message="Hello Najd Rent a Car, I would like to rent a car in Dubai." />
-              <a
-                href="/fleet/"
-                className="inline-flex items-center justify-center px-5 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-slate-100 transition-colors"
-              >
-                View the fleet
-              </a>
-            </div>
+      <section className="home-hero">
+        <Container className="hero-layout">
+          <div className="hero-copy">
+            <span className="hero-eyebrow"><span /> NAJD RENT A CAR · DUBAI</span>
+            <h1>Car rental in Dubai.<br /><em>A class of its own.</em></h1>
+            <p>From a day that deserves something special to a car that feels like yours for months. Find your next drive with Najd.</p>
+            <div className="hero-actions"><a href="/luxury-car-rental-dubai/" className="hero-primary">Explore luxury cars <span aria-hidden="true">↗</span></a><a href="/monthly-car-rental-dubai/" className="hero-secondary">Monthly rentals <span aria-hidden="true">→</span></a></div>
+            <div className="hero-footnote"><span>EST. {BUSINESS.foundingYear}</span><span>Al Quoz, Dubai</span><a href="/licence/">Licensed. Established. Local.</a></div>
+          </div>
+          <div className="hero-vehicle">
+            <span className="hero-wordmark" aria-hidden="true">NAJD</span>
+            <img src={carImage(CARS.find(c => c.slug === 'range-rover-vogue')!)} width={1200} height={800} alt="White Range Rover Vogue from the Najd luxury rental collection" fetchPriority="high" />
+            <a href="/cars/range-rover-vogue/" className="hero-car-label"><span>THE LUXURY COLLECTION<strong>Range Rover Vogue</strong></span><span aria-hidden="true">↗</span></a>
           </div>
         </Container>
       </section>
-
-      <div className="bg-white border-b border-slate-200">
-        <Container className="py-6">
-          <dl className="grid grid-cols-2 md:grid-cols-4 gap-5 text-sm">
-            <div>
-              <dt className="text-xs text-slate-500 uppercase tracking-wider">Serving clients since</dt>
-              <dd className="text-xl font-bold text-slate-900 mt-1">{BUSINESS.foundingYear}</dd>
-            </div>
-            <div>
-              <dt className="text-xs text-slate-500 uppercase tracking-wider">Fleet</dt>
-              <dd className="text-xl font-bold text-slate-900 mt-1">{BUSINESS.fleetSize} vehicles</dd>
-            </div>
-            <div>
-              <dt className="text-xs text-slate-500 uppercase tracking-wider">Commercial licence</dt>
-              <dd className="text-xl font-bold text-slate-900 mt-1">
-                <a href="/licence/" className="hover:text-[#C5221F]">No. {BUSINESS.licenceNumber}</a>
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs text-slate-500 uppercase tracking-wider">Part of</dt>
-              <dd className="text-xl font-bold text-slate-900 mt-1">
-                <a href="/about/" className="hover:text-[#C5221F]">{BUSINESS.group}</a>
-              </dd>
-            </div>
-          </dl>
-        </Container>
-      </div>
+      <div className="service-ribbon"><Container><span><BadgeCheck aria-hidden="true" /> Serving Dubai since {BUSINESS.foundingYear}</span><span><BadgeCheck aria-hidden="true" /> Car delivery available</span><span><BadgeCheck aria-hidden="true" /> Monthly &amp; long-term options</span></Container></div>
+      <section className="booking-intro"><Container><div><span className="eyebrow">YOUR NEXT DRIVE, MADE SIMPLE</span><h2>Choose it. Book it.<br />Make it yours.</h2></div><ol><li><span>01</span><h3>Find your car</h3><p>Explore the fleet and choose the model, year and rental term that fit your plans.</p></li><li><span>02</span><h3>Talk to Najd</h3><p>Send your dates on WhatsApp. We confirm availability, the rate and your rental details.</p></li><li><span>03</span><h3>Start your journey</h3><p>Agree your collection or delivery, complete the handover and get on the road.</p></li></ol></Container></section>
 
       <Container>
+        <Section>
+          <div className="collection-heading"><div><span className="eyebrow">THE NAJD COLLECTION</span><H2>A better way to drive.</H2></div><a href="/fleet/">Discover the full fleet <span aria-hidden="true">↗</span></a></div>
+          <CarGrid cars={featured} />
+          <RateNote />
+          <p className="mt-5">
+            <a href="/fleet/" className="text-sm font-semibold text-[#C5221F] underline underline-offset-4">
+              See all {CARS.length} models in the fleet
+            </a>
+          </p>
+        </Section>
         <Section>
           <H2>Rent by category</H2>
           <LinkCards
@@ -149,16 +120,7 @@ export const HomePage: React.FC = () => {
           />
         </Section>
 
-        <Section>
-          <H2>Popular cars and current rates</H2>
-          <CarGrid cars={featured} />
-          <RateNote />
-          <p className="mt-5">
-            <a href="/fleet/" className="text-sm font-semibold text-[#C5221F] underline underline-offset-4">
-              See all {CARS.length} models in the fleet
-            </a>
-          </p>
-        </Section>
+
 
         <Section>
           <H2>Why rent from Najd</H2>
@@ -219,10 +181,10 @@ export const FleetPage: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => {
       <PageHeader
         crumbs={crumbs}
         h1="Our Fleet: Cars for Rent in Dubai"
-        lead={`${CARS.length} models are listed below, ${carsWithRates().length} with published daily, weekly and monthly rates. The full Najd fleet is ${BUSINESS.fleetSize} vehicles, so ask us if you need a model or quantity that is not shown.`}
+        lead={`${CARS.length} models are listed below, ${carsWithRates().length} with published rates for their available rental terms. The full Najd fleet is ${BUSINESS.fleetSize} vehicles, so ask us if you need a model or quantity that is not shown.`}
       />
       <Container>
-        {groups.map((g) => (
+        {[...groups].reverse().map((g) => (
           <Section key={g.heading}>
             <H2>
               {g.heading} ({g.cars.length} models)
@@ -268,7 +230,7 @@ export function carFaqs(car: Car) {
   if (car.rates) {
     faqs.push({
       q: `How much does it cost to rent a ${name} in Dubai?`,
-      a: `At Najd Rent a Car the ${name} is ${aed(car.rates.day)} per day, ${aed(car.rates.week)} per week or ${aed(car.rates.month)} per month. Rates can change, so confirm when you book.`,
+      a: `At Najd Rent a Car the ${name} is ${rateSummary(car)}. Rates can change, so confirm when you book.`,
     });
   } else {
     faqs.push({
@@ -282,6 +244,11 @@ export function carFaqs(car: Car) {
       a: `The ${name} seats ${car.seatsText ?? car.seats}${car.bags ? ` and carries about ${car.bags} bags` : ''}. It has an automatic gearbox.`,
     });
   }
+  faqs.push(
+    { q: `What mileage is included with the ${name}?`, a: `${name} monthly rentals include 4,500 km per month.${car.rates?.day ? ' Daily rentals include 250 km per day.' : ''} Ask for the excess-kilometre charge and any weekly allowance in the written quote before reserving.` },
+    { q: `Does the ${name} have a long-term rate?`, a: car.rates?.longTerm ? `The ${name}${car.modelYear && !car.slug.endsWith('-2027') ? ` ${car.modelYear}` : ''} starts at ${aed(car.rates.longTerm)} per month for rentals of five months or more. That is a monthly charge; confirm the model year, total commitment and early-return conditions.` : `Ask Najd for a ${name} quote covering five months or more. No long-term price is published for this model, so do not assume a discount or multiply another model's rate.` },
+    { q: `Can Najd deliver the ${name}?`, a: `Yes, delivery can be arranged for the ${name}. Send your dates and delivery address on WhatsApp, then confirm vehicle availability, timing and any delivery charge before booking.` },
+  );
   return faqs;
 }
 
@@ -311,6 +278,7 @@ export const CarPage: React.FC<{ car: Car; crumbs: Crumb[] }> = ({ car, crumbs }
                   {[
                     ['Make', car.brand],
                     ['Model', car.model],
+                    ...(car.modelYear ? [['Model year', car.variants?.map(v => v.year).join(' / ') || String(car.modelYear)]] : []),
                     ['Body type', car.bodyType],
                     ['Transmission', car.transmission],
                     ...(car.seats ? [['Seats', car.seatsText ?? String(car.seats)]] : []),
@@ -334,9 +302,12 @@ export const CarPage: React.FC<{ car: Car; crumbs: Crumb[] }> = ({ car, crumbs }
                       <tbody>
                         {(
                           [
-                            ['Per day', car.rates.day],
-                            ['Per week', car.rates.week],
-                            ['Per month', car.rates.month],
+                            ...(car.rates.day ? [['Per day', car.rates.day] as const] : []),
+                            ...(car.rates.week ? [['Per week', car.rates.week] as const] : []),
+                            ...(car.variants || [{year: car.modelYear, month: car.rates.month, longTerm: car.rates.longTerm}]).flatMap(v => [
+                              [`${v.year || ''} monthly`, v.month] as const,
+                              ...(v.longTerm ? [[`${v.year || ''} per month, 5+ months`, v.longTerm] as const] : []),
+                            ]),
                           ] as const
                         ).map(([label, value]) => (
                           <tr key={label} className="border-b border-slate-100 last:border-0">
@@ -349,6 +320,7 @@ export const CarPage: React.FC<{ car: Car; crumbs: Crumb[] }> = ({ car, crumbs }
                       </tbody>
                     </table>
                     <RateNote />
+                    <dl className="mileage-details"><div><dt>Monthly mileage</dt><dd>4,500 km included</dd></div>{car.rates.day && <div><dt>Daily mileage</dt><dd>250 km included</dd></div>}</dl><p className="text-xs text-slate-500 mt-3">Confirm weekly mileage and excess-kilometre charges before booking.</p>
                   </>
                 ) : (
                   <p className="text-sm text-slate-600 mt-3">
@@ -428,28 +400,28 @@ export const CarPage: React.FC<{ car: Car; crumbs: Crumb[] }> = ({ car, crumbs }
 const RateTable: React.FC<{ cars: Car[] }> = ({ cars }) => (
   <div className="overflow-x-auto bg-white border border-slate-200 rounded-2xl">
     <table className="w-full text-sm min-w-[560px]">
-      <caption className="sr-only">Daily, weekly and monthly rental rates by model</caption>
+      <caption className="sr-only">Rental rates by model and model year</caption>
       <thead>
         <tr className="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-200">
           <th scope="col" className="px-4 py-3 font-semibold">Model</th>
           <th scope="col" className="px-4 py-3 font-semibold text-right">Per day</th>
           <th scope="col" className="px-4 py-3 font-semibold text-right">Per week</th>
           <th scope="col" className="px-4 py-3 font-semibold text-right">Per month</th>
-          <th scope="col" className="px-4 py-3 font-semibold text-right">30 days at daily rate</th>
+          <th scope="col" className="px-4 py-3 font-semibold text-right">Per month, 5+ months</th>
         </tr>
       </thead>
       <tbody>
-        {cars.map((car) => (
-          <tr key={car.slug} className="border-b border-slate-100 last:border-0">
+        {cars.flatMap(car => car.variants?.map(v => ({...car, modelYear: v.year, rates: {...car.rates!, month:v.month, longTerm:v.longTerm}})) || [car]).map((car) => (
+          <tr key={`${car.slug}-${car.modelYear}`} className="border-b border-slate-100 last:border-0">
             <th scope="row" className="px-4 py-3 text-left font-semibold">
               <a href={carPath(car)} className="text-slate-900 hover:text-[#C5221F]">
-                {carName(car)}
+                {carName(car)} {car.modelYear && !car.slug.endsWith("-2027") ? car.modelYear : ""}
               </a>
             </th>
-            <td className="px-4 py-3 text-right tabular-nums">{aed(car.rates!.day)}</td>
-            <td className="px-4 py-3 text-right tabular-nums">{aed(car.rates!.week)}</td>
+            <td className="px-4 py-3 text-right tabular-nums">{car.rates?.day ? aed(car.rates.day) : "Not offered"}</td>
+            <td className="px-4 py-3 text-right tabular-nums">{car.rates?.week ? aed(car.rates.week) : "Not offered"}</td>
             <td className="px-4 py-3 text-right tabular-nums font-bold">{aed(car.rates!.month)}</td>
-            <td className="px-4 py-3 text-right tabular-nums text-slate-500">{aed(car.rates!.day * 30)}</td>
+            <td className="px-4 py-3 text-right tabular-nums text-slate-500">{car.rates?.longTerm ? aed(car.rates.longTerm) : "Ask for quote"}</td>
           </tr>
         ))}
       </tbody>

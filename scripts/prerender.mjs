@@ -87,7 +87,7 @@ const aed = (n) => `AED ${n.toLocaleString('en-US')}`;
 const link = (name, p, note) => `- [${name}](${SITE_URL}${p})${note ? `: ${note}` : ''}`;
 const llms = `# ${BUSINESS.name}
 
-> ${BUSINESS.legalName} is a licensed car rental company in Dubai, United Arab Emirates, serving clients since ${BUSINESS.foundingYear}. It rents economy cars, SUVs and luxury vehicles by the day, week, month and year, self-drive or with a chauffeur.
+> ${BUSINESS.legalName} is a licensed car rental company in Dubai, United Arab Emirates, serving clients since ${BUSINESS.foundingYear}. It offers monthly and long-term economy cars and SUVs, plus daily and weekly luxury rentals, self-drive or with a chauffeur.
 
 ## Verified company facts
 
@@ -120,7 +120,7 @@ ${[
 
 ## Fleet and rates
 
-Rates are in AED and can change. Cars without a rate are quoted on request.
+Rates are in AED and can change. Non-luxury cars have monthly and long-term rates only. Long-term rates apply to 5+ months and are charged per month. Daily rentals include 250 km per day; monthly rentals include 4,500 km per month. Weekly mileage and excess charges are confirmed at booking. Cars without a rate are quoted on request.
 
 ${LLMS.cars
   .map((c) =>
@@ -130,7 +130,7 @@ ${LLMS.cars
       [
         c.label,
         c.seats ? `${c.seats} seats` : '',
-        c.rates ? `${aed(c.rates.day)} per day, ${aed(c.rates.week)} per week, ${aed(c.rates.month)} per month` : 'rate on request',
+        c.rates ? [c.rates.day ? `${aed(c.rates.day)} per day` : "", c.rates.week ? `${aed(c.rates.week)} per week` : "", ...(c.variants || [{year:c.modelYear, month:c.rates.month, longTerm:c.rates.longTerm}]).map(v => `${v.year || ""}: ${aed(v.month)} per month${v.longTerm ? `, ${aed(v.longTerm)} per month for 5+ months` : ""}`)].filter(Boolean).join(", ") : 'rate on request',
       ]
         .filter(Boolean)
         .join(', '),

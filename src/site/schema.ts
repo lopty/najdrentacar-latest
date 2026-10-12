@@ -118,6 +118,7 @@ export function carSchema(car: Car) {
     bodyType: car.bodyType,
     vehicleTransmission: car.transmission,
   };
+  if (car.modelYear && (!car.variants || car.variants.length === 1)) schema.vehicleModelDate = String(car.modelYear);
   if (car.seats && !car.seatsText) schema.vehicleSeatingCapacity = car.seats;
   if (car.rates) {
     const unit = (price: number, unitCode: string, unitText: string) => ({
@@ -127,19 +128,25 @@ export function carSchema(car: Car) {
       unitCode,
       unitText,
     });
-    schema.offers = {
+    const offer = (price: number, unitCode: string, unitText: string, name: string, longTerm = false) => ({
       '@type': 'Offer',
+      name,
       url: absoluteUrl(carPath(car)),
-      price: car.rates.day,
+      price,
       priceCurrency: 'AED',
       businessFunction: 'http://purl.org/goodrelations/v1#LeaseOut',
       seller: { '@id': ORG_ID },
-      priceSpecification: [
-        unit(car.rates.day, 'DAY', 'per day'),
-        unit(car.rates.week, 'WEE', 'per week'),
-        unit(car.rates.month, 'MON', 'per month'),
-      ],
-    };
+      priceSpecification: unit(price, unitCode, unitText),
+      ...(longTerm ? {eligibleDuration: {'@type': 'QuantitativeValue', minValue: 5, unitCode: 'MON'}} : {}),
+    });
+    schema.offers = [
+      ...(car.rates.day ? [offer(car.rates.day, 'DAY', 'per day', 'Daily rental')] : []),
+      ...(car.rates.week ? [offer(car.rates.week, 'WEE', 'per week', 'Weekly rental')] : []),
+      ...(car.variants || [{year: car.modelYear, month: car.rates.month, longTerm: car.rates.longTerm}]).flatMap(v => [
+        offer(v.month, 'MON', 'per month', `${v.year || ''} monthly rental`.trim()),
+        ...(v.longTerm ? [offer(v.longTerm, 'MON', 'per month', `${v.year || ''} rental of 5+ months`.trim(), true)] : []),
+      ]),
+    ];
   }
   return schema;
 }

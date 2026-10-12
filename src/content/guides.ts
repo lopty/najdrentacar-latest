@@ -31,7 +31,6 @@ const SOURCES = {
 const sunny = getCar('nissan-sunny');
 const asx = getCar('mitsubishi-asx');
 const outlander = getCar('mitsubishi-outlander');
-const breakEven = (day: number, longer: number) => Math.ceil(longer / day);
 
 const CORE_GUIDES: Guide[] = [
   {
@@ -41,7 +40,7 @@ const CORE_GUIDES: Guide[] = [
     description: 'The documents tourists and UAE residents need to rent a car in Dubai, which foreign licences are accepted, and when you need an International Driving Permit.',
     h1: 'Documents Needed to Rent a Car in Dubai',
     lead: 'What you need depends on one thing: whether you are a visitor or a UAE resident. Visitors rent on a passport and an accepted foreign licence. Residents rent on an Emirates ID and a UAE driving licence.',
-    updated: '2026-10-05',
+    updated: '2026-10-12',
     sections: [
       {
         heading: 'What documents does a tourist need?',
@@ -109,7 +108,7 @@ const CORE_GUIDES: Guide[] = [
     description: 'How car rental deposits and insurance work in Dubai: why a deposit is held, when it is refunded, what an excess is, and the questions to ask before you sign.',
     h1: 'Car Rental Deposit and Insurance in Dubai, Explained',
     lead: 'Most disputes between renters and rental companies in Dubai come down to two things: the deposit and the insurance excess. Both are simple once you know what they are for and what to ask.',
-    updated: '2026-10-05',
+    updated: '2026-10-12',
     sections: [
       {
         heading: 'Why do rental companies take a deposit?',
@@ -173,7 +172,7 @@ const CORE_GUIDES: Guide[] = [
     description: 'A practical guide to driving a rental car in Dubai: road rules, Salik tolls, speed cameras, parking zones and what happens when you get a fine.',
     h1: 'Driving in Dubai as a Visitor',
     lead: 'Driving in Dubai is easy to get used to. Roads are modern, signs are in Arabic and English, and traffic drives on the right. The parts that are different from home are the toll system, the number of speed cameras and how fines reach you in a rental car.',
-    updated: '2026-10-05',
+    updated: '2026-10-12',
     sections: [
       {
         heading: 'What are the basic road rules?',
@@ -244,18 +243,18 @@ const CORE_GUIDES: Guide[] = [
     description: 'How to choose a rental car in Dubai by passengers, luggage, budget and purpose, with real examples from the Najd Rent a Car fleet.',
     h1: 'Which Car Should You Rent in Dubai?',
     lead: 'Choose by people and bags first, then by budget, then by occasion. Most renters who are unhappy with their car chose on price alone and found out at the kerb that the luggage did not fit.',
-    updated: '2026-10-05',
+    updated: '2026-10-12',
     sections: [
       {
         heading: 'Which car for one or two people?',
         paragraphs: [
-          `An economy car is enough. The Mitsubishi Attrage and Nissan Sunny both have a closed boot for two suitcases, and the Sunny is ${aed(sunny.rates!.day)} per day. If you want a higher seat and an easier view in traffic, a compact crossover such as the Nissan Kicks or Mitsubishi ASX is the next step.`,
+          `For monthly city use, an Attrage or Sunny gives you a closed boot and a compact sedan layout. The 2025 Sunny is AED 1,700 monthly. If you prefer a raised driving position, compare the ASX and Kicks before reserving a car.`,
         ],
       },
       {
         heading: 'Which car for a family?',
         paragraphs: [
-          `Count seats and suitcases separately. Four people with holiday luggage fit a compact SUV. The Mitsubishi ASX is ${aed(asx.rates!.week)} per week. Five people, or four with a pushchair and extra bags, are better in the Mitsubishi Outlander at ${aed(outlander.rates!.week)} per week.`,
+          `Count seats and bags separately. A monthly ASX starts at AED 2,300 for 2024; the 2027 ASX is AED 2,500. For a third row, compare the Outlander at AED 3,200 with the 2027 Destinator at AED 3,100. Inspect the boot with the seats in the position you will use.`,
           'Six or seven people need three rows. A compact seven-seater carries the people but leaves little boot space with every seat up. A full-size SUV carries both.',
         ],
       },
@@ -308,43 +307,43 @@ const CORE_GUIDES: Guide[] = [
     slug: 'daily-weekly-monthly-car-rental',
     navLabel: 'Daily, weekly or monthly',
     title: 'Daily, Weekly or Monthly Car Rental: Which Is Cheaper?',
-    description: 'When a weekly or monthly car rental beats the daily rate in Dubai, worked through with real Najd Rent a Car prices for economy cars and SUVs.',
+    description: `Compare daily and weekly luxury rental with monthly and 5+ month options in Dubai. Clear examples using current Najd rates and included mileage.`,
     h1: 'Daily, Weekly or Monthly Rental: Which Is Cheaper?',
-    lead: `The longer the term, the lower the cost per day. With a Nissan Sunny at ${aed(sunny.rates!.day)} per day, ${aed(sunny.rates!.week)} per week and ${aed(sunny.rates!.month)} per month, the weekly rate becomes cheaper from day ${breakEven(sunny.rates!.day, sunny.rates!.week)} and the monthly rate becomes cheaper from day ${breakEven(sunny.rates!.day, sunny.rates!.month)}.`,
-    updated: '2026-10-05',
+    lead: `The right term depends on the car and your dates. Luxury models have daily and weekly prices; economy cars and standard SUVs have monthly and 5+ month rates. Compare like-for-like model years and confirm mileage before calculating the total.`,
+    updated: '2026-10-12',
     sections: [
       {
         heading: 'When is a weekly rate cheaper than paying by the day?',
         paragraphs: [
-          `Divide the weekly rate by the daily rate. For the Nissan Sunny that is ${aed(sunny.rates!.week)} divided by ${aed(sunny.rates!.day)}, which is ${(sunny.rates!.week / sunny.rates!.day).toFixed(1)}. So if you need the car for ${breakEven(sunny.rates!.day, sunny.rates!.week)} days or more, book the week. For the Mitsubishi ASX the figures are ${aed(asx.rates!.week)} and ${aed(asx.rates!.day)}, and the weekly rate wins from day ${breakEven(asx.rates!.day, asx.rates!.week)}.`,
-          'The practical point is that a six-day rental can cost more than a seven-day one, as it does with the ASX. Always ask for both prices.',
+          `For the Suburban, seven daily charges of AED 550 total AED 3,850. The published weekly price is AED 3,465, which saves AED 385, or 10%. That example applies to the Suburban; do not assume the same discount on every luxury model.`,
+          `A six-day Suburban rental at the daily rate totals AED 3,300, below its weekly rate. The weekly saving begins when you need all seven days, so compare your actual dates.`,
         ],
       },
       {
         heading: 'When is a monthly rate cheaper than paying by the week?',
         paragraphs: [
-          `A month is a little over four weeks. Four weeks of a Nissan Sunny at the weekly rate is ${aed(sunny.rates!.week * 4)}. The monthly rate is ${aed(sunny.rates!.month)}. For the Mitsubishi Outlander, four weeks is ${aed(outlander.rates!.week * 4)} against a monthly rate of ${aed(outlander.rates!.month)}.`,
-          'If your stay is three weeks or longer, ask for the monthly price. On economy models it can be lower than three separate weeks, and you keep the car for the extra days.',
+          `The Suburban monthly price is AED 8,000, compared with AED 13,860 for four separate weekly charges. Before choosing the longer term, compare mileage allowances and return conditions as well as the rental charge.`,
+          `For economy cars, compare the standard month with the 5+ month rate instead. The 2025 Sunny changes from AED 1,700 to AED 1,300 per month when the minimum long-term duration applies.`,
         ],
       },
       {
         heading: 'What changes between short and long rentals besides price?',
         paragraphs: [
-          'Mileage allowances are usually set per day on short rentals and per month on long ones. Check which applies and what an extra kilometre costs. On a long rental, ask who arranges servicing and whether you get a replacement car while it is done.',
+          `Daily rentals include 250 km per day and monthly rentals include 4,500 km per month. Ask for the weekly allowance and excess-kilometre charge in writing. A larger rental period does not imply unlimited driving.`,
           'Also ask about early return. If you book a month and leave after two weeks, some companies recalculate at the weekly rate. Knowing the rule in advance lets you choose the right term.',
         ],
       },
       {
         heading: 'How do the terms compare across the fleet?',
         paragraphs: [
-          `Najd publishes daily, weekly and monthly rates for ${carsWithRates().length} models. The full comparison table is on our monthly rental page, and each car page shows all three rates side by side.`,
+          `The monthly comparison table lists the published model-year rates, with a separate column for five months or more. Car pages also show daily and weekly prices where offered for luxury vehicles; blank economy short-term prices are not estimates.`,
         ],
       },
     ],
     faqs: [
       {
         q: 'Is it cheaper to rent a car monthly in Dubai?',
-        a: `Yes, for stays of roughly three weeks or more. A Nissan Sunny is ${aed(sunny.rates!.month)} per month compared with ${aed(sunny.rates!.day * 30)} for thirty days at the daily rate.`,
+        a: `It can be for a long enough stay. The Suburban is AED 8,000 monthly versus AED 3,465 weekly. For an economy car, use its published monthly price directly; there is no economy daily price to multiply.`,
       },
       {
         q: 'Should I book six days or a full week?',
@@ -360,7 +359,7 @@ const CORE_GUIDES: Guide[] = [
       },
       {
         q: 'Is yearly car rental cheaper than monthly?',
-        a: 'A yearly commitment usually earns a better rate than renewing month by month. Ask for both figures on the same car and compare the totals.',
+        a: `For the cars with published long-term rates, a yearly agreement meets the five-month minimum. Multiply the monthly long-term charge by the agreed months, then confirm any additional charges and early-return terms with Najd.`,
       },
     ],
     categories: ['monthly-car-rental-dubai', 'economy-car-rental-dubai', 'corporate-car-rental-dubai'],

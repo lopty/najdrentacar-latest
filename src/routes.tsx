@@ -11,7 +11,7 @@ import {
   organizationSchema,
   webPageSchema,
 } from './site/schema';
-import { CARS, carImage, carName, carPath, lowestRate } from './data/cars';
+import { CARS, carImage, carName, rateSummary, carPath, lowestRate } from './data/cars';
 import { CATEGORIES, categoryPath } from './content/categories';
 import { GUIDES, guidePath } from './content/guides';
 import { CarPage, CategoryPageView, FleetPage, HOME_FAQS, HomePage, carFaqs } from './pages/commercial';
@@ -56,7 +56,7 @@ const staticRoutes: Route[] = [
   {
     path: '/',
     title: 'Najd Rent a Car Dubai | Car Rental Since 2002',
-    description: `Licensed Dubai car rental company since 2002. Economy cars from ${aed(lowestRate(CARS, 'day')!)} per day, SUVs, luxury cars and chauffeur service. Licence ${BUSINESS.licenceNumber}. Call ${BUSINESS.phoneDisplay}.`,
+    description: `Car rental in Dubai since 2002. Monthly economy cars, family SUVs and daily luxury rentals. Explore model-year rates and 5+ month options with Najd.`,
     jsonLd: [
       organizationSchema(),
       {
@@ -73,7 +73,7 @@ const staticRoutes: Route[] = [
   page(
     '/fleet/',
     'Our Fleet: Cars for Rent in Dubai | Najd Rent a Car',
-    `Browse the Najd Rent a Car fleet in Dubai: ${CARS.length} models from economy sedans to luxury SUVs, with daily, weekly and monthly rates.`,
+    `Browse the Najd Rent a Car fleet in Dubai: ${CARS.length} models from economy sedans to luxury SUVs, with model-year monthly rates and daily luxury options.`,
     [HOME, FLEET],
     (crumbs) => <FleetPage crumbs={crumbs} />,
     [carListSchema('Najd Rent a Car fleet', CARS), webPageSchema('CollectionPage', 'Our Fleet', '/fleet/')],
@@ -150,13 +150,13 @@ const categoryRoutes: Route[] = CATEGORIES.map((category) =>
 const carRoutes: Route[] = CARS.map((car) => {
   const name = carName(car);
   const rateText = car.rates
-    ? `${aed(car.rates.day)}/day, ${aed(car.rates.week)}/week, ${aed(car.rates.month)}/month.`
+    ? `${aed(car.rates.month)}/month${car.rates.longTerm ? `; ${aed(car.rates.longTerm)}/month for 5+ months` : ""}.`
     : 'Rate on request.';
   const specText = [car.seats ? `${car.seatsText ?? car.seats} seats` : '', car.transmission.toLowerCase()].filter(Boolean).join(', ');
   return page(
     carPath(car),
     `Rent ${name} in Dubai | Najd Rent a Car`,
-    `${name} rental in Dubai. ${rateText} ${car.label}, ${specText}. Najd Rent a Car, licensed since 2002.`,
+    `${name} rental in Dubai. ${rateText} ${specText}. Book with Najd Rent a Car.`,
     [HOME, FLEET, { name, path: carPath(car) }],
     (crumbs) => <CarPage car={car} crumbs={crumbs} />,
     [carSchema(car), faqSchema(carFaqs(car))],

@@ -38,7 +38,7 @@ export const AboutPage: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => (
     <PageHeader
       crumbs={crumbs}
       h1="About Najd Rent a Car"
-      lead={`Najd Rent a Car has been serving clients since ${BUSINESS.foundingYear} from its headquarters in ${BUSINESS.streetAddress}, Dubai. We provide chauffeur-driven and self-drive luxury car rentals, and economy rentals for daily, monthly and yearly needs.`}
+      lead={`Najd Rent a Car has been serving clients since ${BUSINESS.foundingYear} from its headquarters in ${BUSINESS.streetAddress}, Dubai. We provide chauffeur-driven and self-drive luxury car rentals, and economy rentals for monthly and long-term needs.`}
     />
     <Container>
       <Section>
@@ -98,7 +98,7 @@ export const AboutPage: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => (
         <H2>Services</H2>
         <CheckList
           items={[
-            'Daily, weekly, monthly and yearly rentals.',
+            'Monthly and 5+ month rentals, with daily and weekly options for luxury cars.',
             'Corporate fleet solutions.',
             'Staff and business transport support.',
             'Executive transport for visiting management and guests.',

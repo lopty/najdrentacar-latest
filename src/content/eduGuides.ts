@@ -5,7 +5,7 @@ import type { Guide } from './guides';
 // Education pages. Each one ends with five questions people actually search,
 // answered directly. Every company claim must trace back to business.ts or cars.ts.
 
-const UPDATED = '2026-10-05';
+const UPDATED = '2026-10-12';
 const SRC = {
   rta: { name: 'Roads and Transport Authority (RTA)', url: 'https://www.rta.ae' },
   salik: { name: 'Salik', url: 'https://www.salik.ae' },
@@ -31,16 +31,16 @@ export const EDU_GUIDES: Guide[] = [
     slug: 'long-term-car-rental-dubai',
     navLabel: 'Long term rental',
     title: 'Long Term Car Rental in Dubai: How It Works',
-    description: 'How long term car rental works in Dubai: yearly terms, what is included, how it compares with buying, and what to agree before you sign.',
+    description: 'Long-term car rental in Dubai for 5+ months: monthly charges, included mileage, model-year comparisons and the agreement to check before booking.',
     h1: 'Long Term Car Rental in Dubai: How It Works',
-    lead: `Long term rental means keeping one car for six months, a year or longer on a fixed arrangement. The car stays registered and insured in the rental company’s name, and you pay one regular amount. Najd Rent a Car offers yearly terms alongside daily, weekly and monthly rental.`,
+    lead: `At Najd, long-term prices apply to rentals of five months or more and are charged per month. Choose a model year, compare its standard monthly and 5+ month prices, then request the agreement and included mileage before committing.`,
     updated: UPDATED,
     sections: [
       {
         heading: 'What is the difference between monthly and long term rental?',
         paragraphs: [
-          'A monthly rental renews one month at a time, so you can stop whenever your plans change. A long term rental commits both sides for a set period, usually a year. In return for that commitment the customer normally gets a better rate than twelve separate months, and the company can plan its fleet around you.',
-          `Our published monthly rates give you the starting point. A Nissan Sunny is ${aed(sunny.rates!.month)} per month and a Mitsubishi Outlander is ${aed(outlander.rates!.month)} per month. Ask us to price the same car on a yearly term and compare the two figures side by side.`,
+          `The long-term rate depends on a minimum five-month rental. It is not the total for five months, and it should not be assumed to apply after an early return. Ask how changing your return date affects the agreed price.`,
+          `The 2025 Sunny is AED 1,700 monthly or AED 1,300 per month for 5+ months. Both listed Outlander years are AED 3,200 monthly or AED 3,000 on the longer term. Use the car pages to compare the year you will actually receive.`,
         ],
       },
       {
@@ -63,7 +63,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'Is long term car rental cheaper than monthly rental?',
-        a: 'Usually, because you commit for longer. The saving depends on the car and the term, so ask for a yearly quote on the exact model and compare it with the published monthly rate multiplied by twelve.',
+        a: 'Our published 5+ month prices are lower than the corresponding standard monthly charges. The saving varies by year and model. Ask for the exact vehicle, total commitment and early-return terms before agreeing.',
       },
       {
         q: 'Is it better to lease or buy a car in Dubai?',
@@ -75,7 +75,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'What is the cheapest car for a long term rental at Najd?',
-        a: `The Nissan Sunny and Mitsubishi Attrage have our lowest published monthly rate at ${aed(sunny.rates!.month)}. Yearly pricing is quoted on request.`,
+        a: `For a five-month or longer agreement, the 2024 Attrage is AED 1,200 per month. The 2025 Attrage and Sunny are each AED 1,300. These published figures let you compare the commitment before asking for a written quote.`,
       },
     ],
     categories: ['monthly-car-rental-dubai', 'corporate-car-rental-dubai', 'economy-car-rental-dubai'],
@@ -217,7 +217,7 @@ export const EDU_GUIDES: Guide[] = [
       {
         heading: 'Which car should a new resident rent?',
         paragraphs: [
-          `Most people start with an economy car on a monthly term while they find a home and decide whether to buy. The Nissan Sunny and Mitsubishi Attrage are both ${aed(sunny.rates!.month)} per month at our published rate. Families tend to move up to a compact SUV once school runs begin.`,
+          `A monthly economy car can cover the period while you settle into Dubai. Compare the 2024 Attrage at AED 1,400, the 2025 Attrage at AED 1,600 and the 2025 Sunny at AED 1,700 per month. A later move to an SUV should be agreed with the rental team.`,
         ],
       },
     ],
@@ -253,13 +253,13 @@ export const EDU_GUIDES: Guide[] = [
     title: 'How to Get an Affordable Car Rental in Dubai',
     description: 'What really makes a Dubai car rental cheap or expensive: term length, car class, season and extras. Practical ways to lower the total you pay.',
     h1: 'How to Get an Affordable Car Rental in Dubai',
-    lead: `The headline daily rate is only part of what you pay. The total depends on how long you rent, which class of car you choose, when you travel and what gets added afterwards. Our lowest published rates are ${aed(attrage.rates!.day)} per day and ${aed(attrage.rates!.month)} per month.`,
+    lead: `Affordable rental starts with the right term and model year. Najd lists the 2024 Attrage at AED 1,400 monthly or AED 1,200 per month for 5+ months. Compare the total agreement and mileage, not a daily figure inferred from monthly pricing.`,
     updated: UPDATED,
     sections: [
       {
         heading: 'What has the biggest effect on price?',
         paragraphs: [
-          `Term length. A Mitsubishi Attrage is ${aed(attrage.rates!.day)} per day, ${aed(attrage.rates!.week)} per week and ${aed(attrage.rates!.month)} per month. Paid by the day, a month would cost ${aed(attrage.rates!.day * 30)}. Paid by the month it costs less than half of that. If you are staying three weeks, price the month.`,
+          `For the Attrage, year and commitment both change the quote. The 2024 version is AED 1,400 monthly and the 2025 version AED 1,600. At five months or more, their monthly charges become AED 1,200 and AED 1,300 respectively. Confirm which year is reserved.`,
           'Car class comes second. Moving from an economy sedan to a compact SUV roughly doubles the monthly figure, so be honest about whether you need the larger car every day.',
         ],
       },
@@ -279,7 +279,7 @@ export const EDU_GUIDES: Guide[] = [
     faqs: [
       {
         q: 'What is the cheapest car to rent in Dubai?',
-        a: `At Najd Rent a Car the lowest published daily rate is the Mitsubishi Attrage at ${aed(attrage.rates!.day)}. The Attrage and the Nissan Sunny share the lowest monthly rate at ${aed(sunny.rates!.month)}.`,
+        a: `Start with the 2024 Mitsubishi Attrage if the monthly charge is your priority. Its AED 1,400 standard monthly rate is the lowest published monthly figure in our catalogue. The lower AED 1,200 rate requires at least five months.`,
       },
       {
         q: 'How can I rent a car cheaply in Dubai without being caught by hidden charges?',
@@ -291,7 +291,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'Is weekly rental cheaper than daily?',
-        a: `Yes, per day. An Attrage is ${aed(attrage.rates!.week)} for a week against ${aed(attrage.rates!.day * 7)} for seven separate days.`,
+        a: `For luxury cars, compare the published daily and weekly totals. The Suburban is AED 550 daily or AED 3,465 weekly, a 10% reduction from seven daily charges. Economy daily and weekly prices are not published.`,
       },
       {
         q: 'Where can I find an affordable and trustworthy car rental in Dubai?',
@@ -338,7 +338,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'How much does a luxury car cost per day in Dubai?',
-        a: `Our published daily rates are ${aed(a6.rates!.day)} for the Audi A6, ${aed(escalade.rates!.day)} for the Cadillac Escalade and ${aed(rangeRover.rates!.day)} for the Range Rover Vogue. Other models are quoted on request.`,
+        a: `Our published daily rates are ${aed(a6.rates!.day!)} for the Audi A6, ${aed(escalade.rates!.day!)} for the Cadillac Escalade and ${aed(rangeRover.rates!.day!)} for the Range Rover Vogue. Other models are quoted on request.`,
       },
       {
         q: 'Can a tourist rent a luxury car in Dubai?',
@@ -405,7 +405,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'Which is cheaper for a week in Dubai, a chauffeur or a rental car?',
-        a: `A rental car. For example, a Mitsubishi ASX is ${aed(asx.rates!.week)} for the week at our published rate. A chauffeur for the same period costs more because you are paying for a person’s time.`,
+        a: `Ask for a self-drive and chauffeur quote covering the same dates and journeys. Published luxury daily and weekly rates cover the car; do not assume that the price also includes a driver. Standard SUVs are listed on monthly terms.`,
       },
     ],
     categories: ['chauffeur-service-dubai', 'luxury-car-rental-dubai', 'rent-a-car-dubai-tourists'],
@@ -526,34 +526,34 @@ export const EDU_GUIDES: Guide[] = [
     slug: 'best-7-seater-to-rent-in-dubai',
     navLabel: 'Best 7 seater',
     title: 'Best 7 Seater to Rent in Dubai: 5 Options Compared',
-    description: 'Five 7 and 8 seat vehicles compared for Dubai: Mitsubishi Xpander, Outlander, Chevrolet Suburban, Cadillac Escalade and GMC Yukon. Seats, luggage and rates.',
+    description: `Compare seven-seat family rentals in Dubai, including the 2027 Destinator, Xpander, Outlander and larger premium SUVs. Seats, luggage and rental terms.`,
     h1: 'Best 7 Seater to Rent in Dubai: 5 Options Compared',
-    lead: `The best seven-seater depends on whether the third row is for children or adults, and how much luggage travels with you. The Mitsubishi Xpander is the value choice at ${aed(xpander.rates!.day)} per day. The Chevrolet Suburban is the choice when every seat and the boot are full.`,
+    lead: `Choose a seven-seater by the people using the back row and the bags travelling with them. The 2024 Xpander starts at AED 2,500 monthly, while the 2027 Destinator is AED 3,100. For daily luxury use with a larger group, compare the Suburban.`,
     updated: UPDATED,
     sections: [
       {
         heading: 'Which 7 seater is best on a budget?',
         paragraphs: [
-          `The Mitsubishi Xpander, at ${aed(xpander.rates!.day)} per day or ${aed(xpander.rates!.week)} per week. It is a purpose-built people carrier, so the third row is easier to reach than in most SUVs. The Mitsubishi Outlander at ${aed(outlander.rates!.day)} per day is the alternative if you mostly travel as five and want a third row for occasional use.`,
+          `Compare the 2024 Xpander at AED 2,500 monthly with the 2027 Destinator at AED 3,100 and the 2024 or 2025 Outlander at AED 3,200. Their 5+ month rates are AED 2,300, AED 2,800 and AED 3,000 per month respectively. Check access to the third row during handover.`,
         ],
       },
       {
         heading: 'Which one carries seven people and their luggage?',
         paragraphs: [
-          `The Chevrolet Suburban. It seats ${suburban.seats} and keeps a full boot behind the last row, at ${aed(suburban.rates!.day)} per day. Compact seven-seaters use the boot space for the third row, so with seven on board they carry only small bags.`,
+          `The Chevrolet Suburban. It seats ${suburban.seats} and keeps a full boot behind the last row, at ${aed(suburban.rates!.day!)} per day. Compact seven-seaters use the boot space for the third row, so with seven on board they carry only small bags.`,
         ],
       },
       {
         heading: 'Which is the most luxurious?',
         paragraphs: [
-          `The Cadillac Escalade, with ${escalade.seats} seats at ${aed(escalade.rates!.day)} per day. It is the one to choose for VIP guests or a celebration. The GMC Yukon sits between the Suburban and the Escalade in finish and seats seven or eight depending on configuration.`,
+          `The Cadillac Escalade, with ${escalade.seats} seats at ${aed(escalade.rates!.day!)} per day. It is the one to choose for VIP guests or a celebration. The GMC Yukon sits between the Suburban and the Escalade in finish and seats seven or eight depending on configuration.`,
         ],
       },
     ],
     faqs: [
       {
         q: 'What is the cheapest 7 seater car to rent in Dubai?',
-        a: `At Najd Rent a Car it is the Mitsubishi Xpander: ${aed(xpander.rates!.day)} per day, ${aed(xpander.rates!.week)} per week or ${aed(xpander.rates!.month)} per month.`,
+        a: `The 2024 Xpander has the lowest published monthly price among these seven-seat models, at AED 2,500. The 2025 version is AED 2,600; their five-month minimum rates are AED 2,300 and AED 2,400 per month.`,
       },
       {
         q: 'Which 7 seater has the most luggage space?',
@@ -582,7 +582,7 @@ export const EDU_GUIDES: Guide[] = [
     title: 'Nissan Sunny vs Mitsubishi Attrage vs Mirage',
     description: 'Nissan Sunny, Mitsubishi Attrage and Mitsubishi Mirage compared for rental in Dubai: space, boot, running costs and published rates.',
     h1: 'Nissan Sunny vs Mitsubishi Attrage vs Mirage: Which Economy Car to Rent',
-    lead: `All three are automatic economy cars that cost little to run. The Sunny has the most cabin space, the Attrage has the lowest daily rate at ${aed(attrage.rates!.day)}, and the Mirage is the easiest to park. Choose by how many people ride with you.`,
+    lead: `The Sunny, Attrage and Mirage offer different economy-car layouts. Compare the Sunny cabin, the Attrage closed boot and the Mirage hatchback against your needs. Monthly pricing varies by model year, so an exact vehicle comparison matters more than a generic headline rate.`,
     updated: UPDATED,
     sections: [
       {
@@ -594,7 +594,7 @@ export const EDU_GUIDES: Guide[] = [
       {
         heading: 'How do the rates compare?',
         paragraphs: [
-          `The Sunny is ${aed(sunny.rates!.day)} per day and ${aed(sunny.rates!.week)} per week. The Attrage is ${aed(attrage.rates!.day)} per day and ${aed(attrage.rates!.week)} per week. Both are ${aed(sunny.rates!.month)} per month, so on a monthly rental the Sunny gives you more car for the same money. The Mirage is quoted on request.`,
+          `The 2025 Sunny is AED 1,700 monthly. The Attrage is AED 1,400 for 2024 or AED 1,600 for 2025. For 5+ months, those prices become AED 1,300 for the Sunny and AED 1,200 or AED 1,300 for the Attrage. The Mirage remains quote-only.`,
         ],
       },
       {
@@ -607,7 +607,7 @@ export const EDU_GUIDES: Guide[] = [
     faqs: [
       {
         q: 'Is the Nissan Sunny or Mitsubishi Attrage better to rent?',
-        a: `For a month, the Sunny, because it is larger and costs the same ${aed(sunny.rates!.month)}. For a few days, the Attrage, because its daily rate of ${aed(attrage.rates!.day)} is lower.`,
+        a: `The 2024 Attrage has the lower monthly charge, while the 2025 Sunny gives you a different cabin and boot layout at AED 1,700 monthly. Compare passenger space in person rather than treating the two cars as equally priced.`,
       },
       {
         q: 'Which economy car has the biggest boot?',
@@ -636,7 +636,7 @@ export const EDU_GUIDES: Guide[] = [
     title: 'Mitsubishi ASX vs Nissan Kicks vs Outlander',
     description: 'Three family SUVs compared for rental in Dubai: Mitsubishi ASX, Nissan Kicks and Mitsubishi Outlander. Size, seats, luggage and rates.',
     h1: 'Mitsubishi ASX vs Nissan Kicks vs Outlander: Which SUV to Rent',
-    lead: `The ASX and Kicks are compact five-seat crossovers. The Outlander is a class larger with a third row. For most families of four the ASX at ${aed(asx.rates!.day)} per day is enough. Step up to the Outlander at ${aed(outlander.rates!.day)} for longer trips or a fifth passenger.`,
+    lead: `Compare the compact ASX and Kicks with the larger Outlander, which adds a third row. The 2024 ASX starts at AED 2,300 monthly; the separate 2027 ASX is AED 2,500. The Outlander is AED 3,200 for either listed year. For another three-row option, explore the 2027 Destinator.`,
     updated: UPDATED,
     sections: [
       {
@@ -648,7 +648,7 @@ export const EDU_GUIDES: Guide[] = [
       {
         heading: 'When is the Outlander worth the extra?',
         paragraphs: [
-          `When three people share the back seat, when you carry a pushchair plus luggage, or when you plan long highway days. The Outlander is wider and quieter, and it has two folding seats in the boot for seven-seat use. At ${aed(outlander.rates!.week)} per week against ${aed(asx.rates!.week)} for the ASX, you pay roughly double for that space.`,
+          `Consider the Outlander when you need a third row or frequently carry larger loads. Its AED 3,200 monthly rate is AED 900 above the 2024 ASX rate. The gap on a 5+ month agreement is AED 1,000 per month, so compare the term as well as the cabin.`,
         ],
       },
       {
@@ -661,7 +661,7 @@ export const EDU_GUIDES: Guide[] = [
     faqs: [
       {
         q: 'Which is the cheapest SUV to rent in Dubai?',
-        a: `In our published list it is the Mitsubishi ASX at ${aed(asx.rates!.day)} per day, ${aed(asx.rates!.week)} per week or ${aed(asx.rates!.month)} per month.`,
+        a: `The 2024 ASX has the lowest published monthly SUV rate here: AED 2,300, or AED 2,000 per month for 5+ months. Its 2025 and 2027 alternatives have their own rates; use the year-specific rows on each car page.`,
       },
       {
         q: 'Is the Mitsubishi Outlander bigger than the ASX?',
@@ -673,7 +673,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'How much is a Mitsubishi Outlander per month in Dubai?',
-        a: `Our published monthly rate is ${aed(outlander.rates!.month)}. The daily rate is ${aed(outlander.rates!.day)}.`,
+        a: `The 2024 and 2025 Outlander each cost AED 3,200 monthly, or AED 3,000 per month for at least five months. We do not list daily or weekly prices for these vehicles.`,
       },
       {
         q: 'Where can I rent a family SUV in Dubai?',
@@ -681,7 +681,7 @@ export const EDU_GUIDES: Guide[] = [
       },
     ],
     categories: ['suv-rental-dubai', 'family-car-rental-dubai', 'mitsubishi-rental-dubai'],
-    cars: ['mitsubishi-asx', 'nissan-kicks', 'mitsubishi-outlander'],
+    cars: ['mitsubishi-asx', 'mitsubishi-asx-2027', 'nissan-kicks', 'mitsubishi-outlander', 'mitsubishi-destinator-2027'],
     sources: [],
   },
   {
@@ -690,7 +690,7 @@ export const EDU_GUIDES: Guide[] = [
     title: 'Cadillac Escalade vs Range Rover: Which to Rent',
     description: 'Cadillac Escalade and Range Rover Vogue compared for rental in Dubai: seats, luggage, driving feel, occasion and published daily rates.',
     h1: 'Cadillac Escalade vs Range Rover Vogue: Which to Rent in Dubai',
-    lead: `Rent the Escalade if you need seven seats or maximum presence, at ${aed(escalade.rates!.day)} per day. Rent the Range Rover Vogue if you are five or fewer and want the most refined drive, at ${aed(rangeRover.rates!.day)} per day.`,
+    lead: `Rent the Escalade if you need seven seats or maximum presence, at ${aed(escalade.rates!.day!)} per day. Rent the Range Rover Vogue if you are five or fewer and want the most refined drive, at ${aed(rangeRover.rates!.day!)} per day.`,
     updated: UPDATED,
     sections: [
       {
@@ -715,7 +715,7 @@ export const EDU_GUIDES: Guide[] = [
     faqs: [
       {
         q: 'Is the Escalade or the Range Rover cheaper to rent in Dubai?',
-        a: `The Escalade. Our published rates are ${aed(escalade.rates!.day)} per day for the Cadillac Escalade and ${aed(rangeRover.rates!.day)} per day for the Range Rover Vogue.`,
+        a: `The Escalade. Our published rates are ${aed(escalade.rates!.day!)} per day for the Cadillac Escalade and ${aed(rangeRover.rates!.day!)} per day for the Range Rover Vogue.`,
       },
       {
         q: 'How many seats does a Cadillac Escalade have?',
@@ -727,7 +727,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'How much is a Range Rover per week in Dubai?',
-        a: `The Range Rover Vogue is ${aed(rangeRover.rates!.week)} per week at our published rate, and ${aed(rangeRover.rates!.month)} per month.`,
+        a: `The Range Rover Vogue is ${aed(rangeRover.rates!.week!)} per week at our published rate, and ${aed(rangeRover.rates!.month)} per month.`,
       },
       {
         q: 'Where can I rent an Escalade or Range Rover in Dubai?',
@@ -744,7 +744,7 @@ export const EDU_GUIDES: Guide[] = [
     title: 'Mercedes S-Class vs BMW 7 Series vs Audi A6',
     description: 'Three executive sedans compared for rental in Dubai: Mercedes-Benz S-Class, BMW 7 Series and Audi A6. Who each one suits and how they are priced.',
     h1: 'Mercedes S-Class vs BMW 7 Series vs Audi A6: Which Executive Sedan to Rent',
-    lead: `The S-Class and 7 Series are flagship limousines built around the rear seat. The Audi A6 is a smaller business sedan built around the driver, with a published rate of ${aed(a6.rates!.day)} per day. Decide first who will be driving.`,
+    lead: `The S-Class and 7 Series are flagship limousines built around the rear seat. The Audi A6 is a smaller business sedan built around the driver, with a published rate of ${aed(a6.rates!.day!)} per day. Decide first who will be driving.`,
     updated: UPDATED,
     sections: [
       {
@@ -756,7 +756,7 @@ export const EDU_GUIDES: Guide[] = [
       {
         heading: 'Which is best if I am driving myself?',
         paragraphs: [
-          `The Audi A6. It is easier to park, less conspicuous and far lower in cost, at ${aed(a6.rates!.week)} per week and ${aed(a6.rates!.month)} per month. Among the two flagships, the 7 Series is the more engaging to drive.`,
+          `The Audi A6. It is easier to park, less conspicuous and far lower in cost, at ${aed(a6.rates!.week!)} per week and ${aed(a6.rates!.month)} per month. Among the two flagships, the 7 Series is the more engaging to drive.`,
         ],
       },
       {
@@ -773,7 +773,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'How much is an Audi A6 per day in Dubai?',
-        a: `Our published rate is ${aed(a6.rates!.day)} per day, ${aed(a6.rates!.week)} per week or ${aed(a6.rates!.month)} per month.`,
+        a: `Our published rate is ${aed(a6.rates!.day!)} per day, ${aed(a6.rates!.week!)} per week or ${aed(a6.rates!.month)} per month.`,
       },
       {
         q: 'Can I rent a Mercedes S-Class with a driver in Dubai?',
@@ -836,7 +836,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'Which car is best for a Dubai to Abu Dhabi day trip?',
-        a: `Any car in good condition will do it. For comfort with a family, a compact SUV such as the Mitsubishi ASX at ${aed(asx.rates!.day)} per day is a good balance.`,
+        a: `For an ongoing monthly rental, an ASX or Outlander can suit a family travelling between the two cities. Plan the return distance against your allowance: monthly rentals include 4,500 km. Confirm excess-kilometre charges before a high-mileage trip.`,
       },
       {
         q: 'Can I hire a driver for a day trip to Abu Dhabi from Dubai?',
@@ -878,7 +878,7 @@ export const EDU_GUIDES: Guide[] = [
       {
         heading: 'Which car suits a road trip?',
         paragraphs: [
-          `Comfort and boot space matter more than power. A compact SUV such as the Mitsubishi ASX is ${aed(asx.rates!.week)} per week and carries four people with bags. For a larger group, the seven-seat Mitsubishi Xpander is ${aed(xpander.rates!.week)} per week. Check your mileage allowance, since a mountain day trip can exceed 350 km.`,
+          `Choose passenger and luggage space first. If you already have a monthly ASX or Xpander, plan the road trip within its 4,500 km monthly allowance. If booking a daily luxury vehicle, the allowance is 250 km per day. Longer routes may need additional mileage, which must be quoted.`,
         ],
       },
     ],
@@ -1089,13 +1089,13 @@ export const EDU_GUIDES: Guide[] = [
     title: 'Replacement Car Rental While Yours Is in the Garage',
     description: 'How to arrange a replacement rental car in Dubai while your own car is being repaired or serviced, who might pay for it, and how to keep the cost down.',
     h1: 'Replacement Car Rental While Yours Is in the Garage',
-    lead: `When your own car is off the road, a short rental keeps your routine intact. A weekly rental on an economy car starts at ${aed(attrage.rates!.week)} at our published rates, and our office is in Al Quoz, the district where many of Dubai’s workshops are located.`,
+    lead: `When repairs interrupt your routine, arrange a car for the realistic repair period. Najd is based in Al Quoz and publishes monthly economy prices plus daily luxury options. Ask the workshop for its estimate before choosing the rental term.`,
     updated: UPDATED,
     sections: [
       {
         heading: 'How long should I rent for?',
         paragraphs: [
-          `Ask the garage for a realistic completion date, then add a margin. Repairs often overrun while parts arrive. If the estimate is five days or more, price a week: a Nissan Sunny is ${aed(sunny.rates!.week)} per week against ${aed(sunny.rates!.day)} per day. If the job may run to three weeks, ask for the monthly rate as well.`,
+          `Ask the garage when parts and labour are expected to be complete. A month-long repair can suit a Sunny at AED 1,700 monthly; for a few days, compare the daily luxury range. Avoid assuming a weekly economy rate or an automatic refund for unused days.`,
         ],
       },
       {
@@ -1122,7 +1122,7 @@ export const EDU_GUIDES: Guide[] = [
       },
       {
         q: 'What is the cheapest car to rent for a week in Dubai?',
-        a: `In our published rates, the Mitsubishi Attrage at ${aed(attrage.rates!.week)} per week, followed by the Nissan Sunny at ${aed(sunny.rates!.week)}.`,
+        a: `For a repair lasting a month, compare the 2024 Attrage at AED 1,400 with the 2025 Sunny at AED 1,700. For a shorter gap, ask for a quote from the luxury daily catalogue and confirm return flexibility.`,
       },
       {
         q: 'Can I extend the rental if my repair takes longer?',

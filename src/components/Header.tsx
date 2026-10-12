@@ -5,10 +5,9 @@ import { BUSINESS, telLink, whatsappLink } from '../site/business';
 
 const NAV = [
   { href: '/fleet/', label: 'Fleet' },
-  { href: '/economy-car-rental-dubai/', label: 'Economy' },
-  { href: '/suv-rental-dubai/', label: 'SUV' },
   { href: '/luxury-car-rental-dubai/', label: 'Luxury' },
   { href: '/monthly-car-rental-dubai/', label: 'Monthly' },
+  { href: '/corporate-car-rental-dubai/', label: 'Business' },
   { href: '/guides/', label: 'Guides' },
   { href: '/about/', label: 'About' },
   { href: '/contact/', label: 'Contact' },
@@ -16,8 +15,8 @@ const NAV = [
 
 export const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 text-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <header className="site-header">
+      <div className="header-inner">
         <a href="/" className="flex items-center shrink-0 py-1" aria-label="Najd Rent a Car home">
           <NajdLogo variant="light" height={38} />
         </a>

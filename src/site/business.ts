@@ -59,7 +59,7 @@ export const HOURS_SENTENCE =
   'Monday to Thursday 9 AM to 6 PM, Friday 9 AM to 12 PM, Sunday 9 AM to 2 PM, closed on Saturday';
 
 export const RATE_NOTE =
-  'Rates are per vehicle in AED and can change. Confirm the current rate with us before you book.';
+  'Rates in AED. Long-term charges are per month for 5+ months. Confirm your vehicle and quote before booking.';
 
 export function whatsappLink(message: string): string {
   return `https://wa.me/${BUSINESS.whatsappE164.replace('+', '')}?text=${encodeURIComponent(message)}`;

@@ -50,6 +50,38 @@ const blocks = new Map(); // long text block -> pages containing it
 const TRUST = ['/about/', '/team/', '/licence/', '/service-standards/', '/reviews/', '/contact/'];
 const BANNED = ['RTA Permit', 'Garhoud', '338 8200', '50 123 4567', '971501234567', '524560201', '52 456 0201', 'AggregateRating', 'reviewCount', 'lorem ipsum'];
 
+// Pricing regressions must fail the same production gate as links and metadata.
+const { LLMS } = await import('../dist-ssr/entry-server.js');
+for (const car of LLMS.cars) {
+  const html = pages.get(car.path);
+  if (!html) continue;
+  const graphs = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+  const vehicle = graphs.find(g => Array.isArray(g['@type']) && g['@type'].includes('Car'));
+  if (!vehicle) { fail('pricing', `${car.path} has no vehicle schema`); continue; }
+  const offers = Array.isArray(vehicle.offers) ? vehicle.offers : vehicle.offers ? [vehicle.offers] : [];
+  const specs = offers.flatMap(o => o.priceSpecification || []);
+  if (car.variants && car.rates && (car.rates.month !== car.variants[0].month || car.rates.longTerm !== car.variants[0].longTerm))
+    fail('pricing', `${car.path} base rate differs from its first model-year variant`);
+  for (const [period, unit] of [['day', 'DAY'], ['week', 'WEE']]) {
+    const published = specs.find(p => p.unitCode === unit);
+    if (car.rates?.[period] ? published?.price !== car.rates[period] : Boolean(published))
+      fail('pricing', `${car.path} has an incorrect ${period} offer`);
+  }
+  for (const variant of car.variants || (car.rates ? [{...car.rates, year: car.modelYear}] : [])) {
+    for (const price of [variant.month, variant.longTerm].filter(Boolean)) {
+      if (!specs.some(p => p.unitCode === 'MON' && p.price === price) || !html.includes(`AED ${price.toLocaleString('en-US')}`))
+        fail('pricing', `${car.path} missing visible or structured rate ${price}`);
+    }
+  }
+  if (car.rates && !html.includes('4,500 km')) fail('pricing', `${car.path} missing monthly mileage`);
+  if (car.rates?.day && !html.includes('250 km')) fail('pricing', `${car.path} missing daily mileage`);
+}
+const llmsText = fs.readFileSync(path.join(dist, 'llms.txt'), 'utf8');
+for (const [url, html] of [...pages, ['llms.txt', llmsText]]) {
+  if (/AED\s+(?:65|75|110|130|175)(?![\d,])/.test(html)) fail('pricing', `${url} includes a retired economy short-term rate`);
+  if (/AED\s+(?:undefined|NaN)|\bInfinity\b/.test(html)) fail('pricing', `${url} contains an invalid calculated rate`);
+}
+
 for (const [url, html] of pages) {
   const main = mainOf(html);
 
