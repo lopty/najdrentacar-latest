@@ -151,13 +151,14 @@ export function carSchema(car: Car) {
   return schema;
 }
 
-export function articleSchema(opts: { headline: string; description: string; path: string; updated: string }) {
+export function articleSchema(opts: { headline: string; description: string; path: string; updated: string; published?: string }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: opts.headline,
     description: opts.description,
     mainEntityOfPage: absoluteUrl(opts.path),
+    ...(opts.published ? { datePublished: opts.published } : {}),
     dateModified: opts.updated,
     author: { '@id': ORG_ID },
     publisher: { '@id': ORG_ID },

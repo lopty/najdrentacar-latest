@@ -172,7 +172,7 @@ const guideRoutes: Route[] = GUIDES.map((guide) =>
     [HOME, GUIDES_CRUMB, { name: guide.navLabel, path: guidePath(guide.slug) }],
     (crumbs) => <GuidePage guide={guide} crumbs={crumbs} />,
     [
-      articleSchema({ headline: guide.h1, description: guide.description, path: guidePath(guide.slug), updated: guide.updated }),
+      articleSchema({ headline: guide.h1, description: guide.description, path: guidePath(guide.slug), updated: guide.updated, published: guide.published }),
       faqSchema(guide.faqs),
     ],
     { ogType: 'article' },

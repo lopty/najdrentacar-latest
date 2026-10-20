@@ -58,10 +58,36 @@ export const H2: React.FC<{ children: React.ReactNode; id?: string }> = ({ child
   </h2>
 );
 
+const LINK_PATTERN = /\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)\s]*)\)/g;
+
+/** Renders [text](url) inside copy as a real link. Everything else is plain text. */
+export function richText(text: string): React.ReactNode[] {
+  const nodes: React.ReactNode[] = [];
+  let last = 0;
+  for (const match of text.matchAll(LINK_PATTERN)) {
+    const [whole, label, href] = match;
+    if (match.index! > last) nodes.push(text.slice(last, match.index));
+    const external = href.startsWith('http');
+    nodes.push(
+      <a
+        key={match.index}
+        href={href}
+        {...(external ? { rel: 'noopener', target: '_blank' } : {})}
+        className="text-[#C5221F] font-semibold underline underline-offset-2"
+      >
+        {label}
+      </a>,
+    );
+    last = match.index! + whole.length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
 export const Prose: React.FC<{ paragraphs: string[] }> = ({ paragraphs }) => (
   <div className="space-y-4 text-[15px] sm:text-base text-slate-700 leading-relaxed max-w-3xl">
     {paragraphs.map((p, i) => (
-      <p key={i}>{p}</p>
+      <p key={i}>{richText(p)}</p>
     ))}
   </div>
 );
@@ -71,7 +97,7 @@ export const CheckList: React.FC<{ items: string[] }> = ({ items }) => (
     {items.map((item) => (
       <li key={item} className="flex items-start gap-2.5">
         <BadgeCheck className="w-4.5 h-4.5 text-emerald-600 mt-0.5 shrink-0" aria-hidden="true" />
-        <span>{item}</span>
+        <span>{richText(item)}</span>
       </li>
     ))}
   </ul>

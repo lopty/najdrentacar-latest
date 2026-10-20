@@ -62,9 +62,18 @@ function moreGuides(guide: Guide): Guide[] {
 
 export const GuidePage: React.FC<{ guide: Guide; crumbs: Crumb[] }> = ({ guide, crumbs }) => (
   <>
-    <PageHeader crumbs={crumbs} eyebrow="Rental guide" h1={guide.h1} lead={guide.lead}>
+    <PageHeader crumbs={crumbs} eyebrow={guide.kind === 'insight' ? 'Mobility and positioning' : 'Rental guide'} h1={guide.h1} lead={guide.lead}>
       <p className="text-xs text-slate-500 mt-4">
-        Written by the Najd Rent a Car team. Last reviewed <time dateTime={guide.updated}>{formatDate(guide.updated)}</time>.
+        Written by the Najd Rent a Car team.{' '}
+        {guide.published ? (
+          <>
+            Published <time dateTime={guide.published}>{formatDate(guide.published)}</time>.
+          </>
+        ) : (
+          <>
+            Last reviewed <time dateTime={guide.updated}>{formatDate(guide.updated)}</time>.
+          </>
+        )}
       </p>
     </PageHeader>
     <Container>
@@ -102,9 +111,9 @@ export const GuidePage: React.FC<{ guide: Guide; crumbs: Crumb[] }> = ({ guide, 
 
       {guide.sources.length > 0 && (
         <Section>
-          <H2>Official sources</H2>
+          <H2>{guide.kind === 'insight' ? 'Sources and further reading' : 'Official sources'}</H2>
           <p className="text-[15px] text-slate-700 max-w-3xl mb-3">
-            Rules change. Check the current position with the authority concerned before you travel.
+            {guide.kind === 'insight' ? 'Public sources support the role and platform descriptions. Najd’s recommendations and practical examples are identified in the article.' : 'Rules change. Check the current position with the authority concerned before you travel.'}
           </p>
           <ul className="text-sm space-y-1.5 list-disc pl-5">
             {guide.sources.map((src) => (
@@ -118,10 +127,10 @@ export const GuidePage: React.FC<{ guide: Guide; crumbs: Crumb[] }> = ({ guide, 
         </Section>
       )}
 
-      <Section>
+      {guide.cars.length > 0 && <Section>
         <H2>Cars mentioned in this guide</H2>
         <CarGrid cars={guide.cars.slice(0, 3).map(getCar)} />
-      </Section>
+      </Section>}
 
       <Section>
         <H2>Related rental options</H2>

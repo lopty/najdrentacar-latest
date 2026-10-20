@@ -1137,4 +1137,127 @@ export const EDU_GUIDES: Guide[] = [
     cars: ['mitsubishi-attrage', 'nissan-sunny', 'mitsubishi-asx'],
     sources: [],
   },
+  {
+    slug: 'renting-a-car-in-dubai-european-visitors',
+    navLabel: 'European visitors',
+    title: 'Renting a Car in Dubai as a European Visitor',
+    description: 'A practical guide for Europeans renting a car in Dubai: licence rules for visitors and new residents, deposits, insurance, driving differences and monthly rentals for teams.',
+    h1: 'Renting a Car in Dubai as a European Visitor or New Arrival',
+    lead: 'Europeans often land in Dubai with a full diary and no car. Taxis cover a lot, but if you are moving between several districts in a day, meeting clients or heading beyond the city, a rental car puts your schedule back in your hands. The rules depend on one question: are you visiting, or have you moved here? Mixing the two up is the most common reason a rental is refused at the counter.',
+    updated: '2026-09-22',
+    published: '2026-09-22',
+    sections: [
+      {
+        heading: 'Visitor or resident: which rules apply to you?',
+        paragraphs: [
+          'The UAE treats drivers by immigration status, not by nationality. On a visit visa or an entry stamp, you are a visitor and you can rent on your home licence if it is from an accepted country. The moment your residence visa is issued, you are a resident, and from then on only a UAE driving licence lets you drive. The same German or French licence that worked last month stops being valid for you, even though a tourist from your home town can still use it.',
+          'This catches out many people relocating for work. They arrive on an entry permit, rent happily for a few weeks, then get their residence visa stamped and assume nothing has changed. Plan the switch: start your UAE licence process as soon as you have an Emirates ID, so there is no gap where you have a rental car and no valid licence.',
+        ],
+      },
+      {
+        heading: 'What documents does a European visitor need?',
+        paragraphs: [
+          'Three originals, each valid for the whole rental period. Keep photos of all three on your phone as a backup, but copies do not replace the originals at handover.',
+          'An International Driving Permit is needed only if your licence country is not on the UAE list. Visitors from the GCC states, the UK, the US, Canada, Australia, New Zealand and most European countries can generally drive on their home licence alone. The UAE authorities maintain that list and update it, so do not rely on what a friend was told two years ago. Send a photo of your licence to the rental company before you travel and ask them to confirm in writing. If your licence is printed in a script other than Latin letters, an IDP removes any doubt at a police checkpoint even where it is not strictly required.',
+        ],
+        list: [
+          'Passport.',
+          'UAE entry stamp or visit visa.',
+          'Driving licence from your home country, plus an International Driving Permit if your country requires one.',
+        ],
+      },
+      {
+        heading: 'I have moved to Dubai. What changes?',
+        paragraphs: [
+          'Residents need an Emirates ID and a valid UAE driving licence. A foreign licence or an IDP is not enough for a resident, whatever country issued it. If your UAE licence is still being processed, wait for it before you rent, or book a car with a driver for that period.',
+          'The good news for most Europeans is that the conversion is usually quick. Holders of licences from countries with a transfer arrangement can exchange them at the RTA without lessons or a road test, often in a single visit. People from other countries go through a driving school, which takes considerably longer. Check which group you are in on the RTA website before you sell your car at home or cancel your licence.',
+        ],
+      },
+      {
+        heading: 'How does the deposit work, and why is it held after I return the car?',
+        paragraphs: [
+          'A deposit covers costs that only become visible after the car is back: traffic fines, Salik tolls, a fuel shortfall, extra kilometres and any damage that is your responsibility. In the UAE, fines and tolls are recorded against the plate and can take days or weeks to reach the rental company. That is why the deposit is held for a period after return instead of being released at the counter. Ask for the exact number of days in writing before you pay.',
+          'European cards add one more layer. A deposit taken as a card pre-authorisation is held in dirhams, and your bank decides both the exchange rate it shows you and how long the hold takes to drop off after the rental company releases it. If your card charges foreign transaction fees, ask whether the deposit can be taken in a way that avoids converting money twice. And if you are flying home, make sure the phone number on your agreement still works abroad, so any question about a late fine can be settled without a dispute.',
+          'To avoid deductions, return the car with the agreed fuel level, inside the mileage allowance and on time. Take dated photos at return, including the fuel gauge and the odometer, and keep them until the deposit is back in your account.',
+        ],
+      },
+      {
+        heading: 'What does rental insurance cover, and what is the excess?',
+        paragraphs: [
+          'Rental cars in the UAE must be insured. The excess is the part of a damage claim you pay yourself if you are at fault. Some companies offer a waiver that reduces it for a daily fee. Before you rely on insurance from a European credit card or travel policy instead, read its terms: some cover only certain countries, some exclude SUVs or luxury cars, and some only pay out after you have paid the rental company and claimed back.',
+          'Read the exclusions in the rental agreement as carefully as the cover. Common ones are driving under the influence, an unnamed driver at the wheel, off-road or desert driving, water damage from driving through floods, and any damage without a police report. Only drivers named on the agreement are insured, and each extra driver has to provide the same documents as the main driver.',
+          'After any accident, however small, you need a police report. For minor accidents with no injuries it can be filed through the Dubai Police app or by phone. Then call the rental company. Do not agree a private settlement at the roadside and drive off. Without a report, the cost can fall on you whoever was at fault.',
+        ],
+      },
+      {
+        heading: 'What will feel different from driving in Europe?',
+        paragraphs: [
+          'Traffic drives on the right, signs are in English and Arabic, and the main roads are modern and well maintained. Drivers from continental Europe adapt quickly. Drivers from the UK and Ireland should take the first hour slowly while they get used to the other side of the road.',
+          'The differences are in the details. Highways such as Sheikh Zayed Road have six or more lanes in each direction and exits come up fast, so set your navigation early and move to the exit lane in good time. Speed cameras are frequent, and limits can change several times on one road. Tolls are automatic through Salik: there are no booths, and your crossings are billed to you through the rental company. Street parking in busy areas is paid by zone through an app or SMS. There is zero tolerance for alcohol, so do not drive after drinking any amount. The working week is Monday to Friday, with the weekend on Saturday and Sunday, and Friday afternoon traffic has its own rhythm.',
+          'A car rented in Dubai can be driven across all seven emirates. Driving outside the UAE, to Oman for example, needs the rental company’s permission and extra insurance arranged in advance.',
+        ],
+      },
+      {
+        heading: 'Should a market-entry team rent cars monthly?',
+        paragraphs: [
+          'Usually, yes. The first months of opening a business in Dubai involve a lot of movement between meetings, free zone offices, banks, government service centres and potential premises. Buying cars before you know where you will be based, before your trade licence is issued and before your team has residence visas and UAE licences commits capital at exactly the wrong moment.',
+          'A monthly rental gives each person a car from the first week and lets you change the mix as the team settles. An economy sedan is enough for most staff; a manager meeting clients may want an executive sedan; a small team visiting sites together can share one larger vehicle. When the plan firms up, a [quarterly](/quarterly-car-rental-dubai/) or [yearly](/yearly-car-rental-dubai/) term fixes the cost for the longer run, and several cars can sit under one [corporate account](/corporate-car-rental-dubai/).',
+          'Najd Rent a Car offers [daily](/daily-car-rental-dubai/), [monthly](/monthly-car-rental-dubai/), quarterly and yearly rentals and arranges delivery when you book, so cars can be brought to a hotel or a new office instead of someone losing half a day to collect them.',
+        ],
+      },
+      {
+        heading: 'Your brand needs a plan too',
+        paragraphs: [
+          'A European business that has moved its people to Dubai still has to move its name. Customers here have not heard of you, and they will form a view from your logo, your website, your Arabic, your packaging and the way your team presents. What reads as confident and understated in Vienna or Amsterdam can read as unfinished in a market used to bold, bilingual brands. A brand built for a home market often needs rethinking before it works in the Gulf, and the Arabic version of your name deserves the same care as the original, not a last-minute transliteration.',
+          '[NAWAR](https://nawar.ae/) is a strategic brand and design consultancy based in Dubai, with offices in Vienna, Berlin and London. It brings European design thinking together with an understanding of the UAE, runs an Arabic version of its own website, and has won more than 20 international design awards. Its services include brand strategy and positioning, brand design, corporate design, and naming and narrative.',
+          'For a European brand arriving in Dubai, [NAWAR](https://nawar.ae/) is worth speaking to early, while the car is still on a monthly rental and the brand is still on paper. Changes are cheapest before the signage, the vehicle branding and the business cards are printed.',
+        ],
+      },
+      {
+        heading: 'Before you book: a checklist',
+        paragraphs: ['Run through this list before you pay anything, whichever company you rent from.'],
+        list: [
+          'Original passport, entry stamp or visa, and home licence, all valid for the whole rental.',
+          'An International Driving Permit only if your licence country requires one.',
+          'A UAE licence and Emirates ID instead, if you are a resident.',
+          'The deposit amount, the payment method and how many days it is held after return.',
+          'The insurance excess, and whether a lower-excess option exists.',
+          'The mileage allowance and the charge per extra kilometre.',
+          'The names of every driver, each with their own documents.',
+          'A phone number that still works after you fly home.',
+        ],
+      },
+      {
+        heading: 'Renting with Najd',
+        paragraphs: [
+          `Najd Rent a Car has rented cars in Dubai since ${BUSINESS.foundingYear} under commercial licence ${BUSINESS.licenceNumber} and is part of ${BUSINESS.group}. It offers self-drive and chauffeur-driven cars, delivery, and monthly and long-term rentals from its base in ${BUSINESS.streetAddress}. Send your dates by WhatsApp to ${BUSINESS.whatsappDisplay} and Najd will confirm availability, the rate and the terms before you commit.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can I rent a car in Dubai with a European driving licence?',
+        a: 'Yes, as a visitor, if your licence is from a country on the UAE list, which includes most European countries. You also need your passport and entry stamp or visit visa. Send a photo of your licence to the rental company before you travel to confirm it is accepted.',
+      },
+      {
+        q: 'Do Europeans need an International Driving Permit to drive in Dubai?',
+        a: 'Most do not, because most European licences are accepted on their own. An IDP is required only if your country is not on the UAE list, and it is a sensible extra if your licence is not printed in Latin letters.',
+      },
+      {
+        q: 'I have a UAE residence visa. Can I keep driving on my European licence?',
+        a: 'No. Once your residence visa is issued you need a UAE driving licence. Many European licences can be exchanged at the RTA without a test, so start the exchange as soon as you have your Emirates ID.',
+      },
+      {
+        q: 'Why is my car rental deposit in Dubai not refunded straight away?',
+        a: 'Because traffic fines and Salik tolls are recorded against the car and can take days or weeks to reach the rental company. The deposit is held for that period. Ask for the exact number of days in writing, and remember your bank also controls how quickly a card hold disappears.',
+      },
+      {
+        q: 'Where can a European company rent cars monthly while setting up in Dubai?',
+        a: `Najd Rent a Car rents by the month, quarter and year and delivers cars when you book. It has operated in Dubai since ${BUSINESS.foundingYear} under licence ${BUSINESS.licenceNumber}, runs ${BUSINESS.fleetSize} vehicles, and can place several cars under one corporate account.`,
+      },
+    ],
+    categories: ['rent-a-car-dubai-tourists', 'monthly-car-rental-dubai', 'corporate-car-rental-dubai'],
+    cars: ['nissan-sunny', 'mitsubishi-asx', 'audi-a6'],
+    sources: [SRC.rta, SRC.police, SRC.salik],
+  },
 ];

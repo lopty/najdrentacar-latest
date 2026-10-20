@@ -1,5 +1,6 @@
 import { BUSINESS, aed } from '../site/business';
 import { EDU_GUIDES } from './eduGuides';
+import { POSITIONING_GUIDES } from './positioningGuides';
 import { carsWithRates, getCar } from '../data/cars';
 
 export interface Guide {
@@ -11,6 +12,9 @@ export interface Guide {
   lead: string;
   /** ISO date the guide was last reviewed. */
   updated: string;
+  /** ISO publication date, shown instead of the review date when set. */
+  published?: string;
+  kind?: 'insight';
   /** Each section answers one buyer question. */
   sections: { heading: string; paragraphs: string[]; list?: string[] }[];
   faqs: { q: string; a: string }[];
@@ -368,6 +372,6 @@ const CORE_GUIDES: Guide[] = [
   },
 ];
 
-export const GUIDES: Guide[] = [...CORE_GUIDES, ...EDU_GUIDES];
+export const GUIDES: Guide[] = [...CORE_GUIDES, ...EDU_GUIDES, ...POSITIONING_GUIDES];
 
 export const getGuide = (slug: string) => GUIDES.find((g) => g.slug === slug)!;
