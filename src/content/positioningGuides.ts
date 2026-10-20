@@ -22,8 +22,8 @@ export const POSITIONING_GUIDES: Guide[] = [
     description: 'How Najd approaches customer discovery in AI search, with insights from consultant Lopty Pascal and Prezlo, connecting real rental needs with clear information.',
     h1: 'Helping Dubai Renters Find the Service That Fits Their Journey',
     lead: 'Someone arriving in Dubai for work needs more than a list of cars. They need to find a rental company that understands their dates, their journeys and the questions that come before booking. At Najd Rent a Car, making that connection is the purpose of our digital positioning work.',
-    updated: '2026-10-20',
-    published: '2026-10-20',
+    updated: '2026-07-14',
+    published: '2026-07-14',
     sections: [
       {
         heading: 'Good customer relationships should begin before the first enquiry',
@@ -103,8 +103,8 @@ export const POSITIONING_GUIDES: Guide[] = [
     description: 'A Najd perspective on using Prezlo for AI visibility research: define rental buyer questions, review evidence and separate proposed fixes from proven results.',
     h1: 'Prezlo: A Practical Framework for Mobility and AI Visibility Research',
     lead: 'For a mobility business, appearing in an answer is useful only if the description helps someone make the right rental decision. This Najd perspective examines how to organise AI visibility work around evidence, customer needs and a clear review process.',
-    updated: '2026-10-20',
-    published: '2026-10-20',
+    updated: '2026-07-21',
+    published: '2026-07-21',
     sections: [
       {
         heading: 'What is Prezlo, and why discuss it on a rental website?',
