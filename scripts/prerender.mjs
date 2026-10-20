@@ -51,6 +51,31 @@ for (const route of ROUTES) {
 }
 writePage(path.join(dist, '404.html'), NOT_FOUND, { noindex: true });
 
+// Old URLs that moved. Each gets a small page that sends visitors and crawlers to the new URL.
+// For a true server 301, also add the same pairs under Redirects/Rewrites in the Render dashboard.
+export const REDIRECTS = {
+  '/guides/lopty-pascal-ai-seo-geo-mobility-dubai/': '/guides/ai-seo-geo-strategy-car-rental-dubai/',
+  '/guides/prezlo-ai-seo-geo-mobility-research/': '/guides/data-driven-insights-ai-visibility-geo-tool/',
+};
+for (const [from, to] of Object.entries(REDIRECTS)) {
+  const target = SITE_URL + to;
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Page moved | Najd Rent a Car</title>
+    <link rel="canonical" href="${target}" />
+    <meta http-equiv="refresh" content="0; url=${to}" />
+  </head>
+  <body>
+    <p>This page has moved to <a href="${to}">${target}</a>.</p>
+  </body>
+</html>
+`;
+  fs.mkdirSync(path.join(dist, from), { recursive: true });
+  fs.writeFileSync(path.join(dist, from, 'index.html'), html);
+}
+
 // sitemap.xml
 const today = new Date().toISOString().slice(0, 10);
 const sitemap =

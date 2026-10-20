@@ -15,12 +15,12 @@ const prezlo = { name: 'Prezlo: platform overview', url: 'https://prezlo.io/' };
 
 export const POSITIONING_GUIDES: Guide[] = [
   {
-    slug: 'lopty-pascal-ai-seo-geo-mobility-dubai',
+    slug: 'ai-seo-geo-strategy-car-rental-dubai',
     kind: 'insight',
-    navLabel: 'Connecting renters with the right service',
-    title: 'Helping Dubai Renters Find the Right Service | Najd',
-    description: 'How Najd approaches customer discovery in AI search, with insights from consultant Lopty Pascal and Prezlo, connecting real rental needs with clear information.',
-    h1: 'Helping Dubai Renters Find the Service That Fits Their Journey',
+    navLabel: 'AI SEO and GEO strategy',
+    title: 'AI SEO and GEO Strategy for Car Rental in Dubai',
+    description: 'How Najd uses a data-driven AI SEO and GEO strategy to reach the right renters in Dubai, connecting real rental needs with clear, verifiable information.',
+    h1: 'AI SEO and GEO Strategy for Car Rental in Dubai: Reaching the Right Renters',
     lead: 'Someone arriving in Dubai for work needs more than a list of cars. They need to find a rental company that understands their dates, their journeys and the questions that come before booking. At Najd Rent a Car, making that connection is the purpose of our digital positioning work.',
     updated: '2026-07-14',
     published: '2026-07-14',
@@ -72,7 +72,7 @@ export const POSITIONING_GUIDES: Guide[] = [
         heading: 'What does better discovery mean for our customers?',
         paragraphs: [
           'Keep a small, repeatable set of questions covering the audiences you genuinely serve. Record the question, assistant, date, answer and cited sources. Classify a mention separately from a recommendation, and record whether the answer gets the vehicle or rental term right. Repeat the same checks after a documented website change, while recognising that answers can vary between runs.',
-          'For our customers, the desired improvement is straightforward: less uncertainty about the available options and an easier conversation when they reach us. Can someone identify a suitable rental period? Can they compare relevant cars? Do they know what to ask before confirming? These are the outcomes we want the content to support. Our companion [guide to AI visibility research with Prezlo](/guides/prezlo-ai-seo-geo-mobility-research/) explains how to organise the evidence behind that work.',
+          'For our customers, the desired improvement is straightforward: less uncertainty about the available options and an easier conversation when they reach us. Can someone identify a suitable rental period? Can they compare relevant cars? Do they know what to ask before confirming? These are the outcomes we want the content to support. Our companion [guide to AI visibility research with Prezlo](/guides/data-driven-insights-ai-visibility-geo-tool/) explains how to organise the evidence behind that work.',
         ],
       },
       {
@@ -96,12 +96,12 @@ export const POSITIONING_GUIDES: Guide[] = [
     sources: [pascal, prezlo],
   },
   {
-    slug: 'prezlo-ai-seo-geo-mobility-research',
+    slug: 'data-driven-insights-ai-visibility-geo-tool',
     kind: 'insight',
-    navLabel: 'Prezlo and AI visibility research',
-    title: 'Prezlo: AI SEO and GEO for Mobility Research',
-    description: 'A Najd perspective on using Prezlo for AI visibility research: define rental buyer questions, review evidence and separate proposed fixes from proven results.',
-    h1: 'Prezlo: A Practical Framework for Mobility and AI Visibility Research',
+    navLabel: 'AI visibility and GEO insights',
+    title: 'Data-Driven Insights From an AI Visibility and GEO Tool',
+    description: 'Our data-driven insights from using an AI visibility and GEO tool: define rental buyer questions, review the evidence and separate proposed fixes from proven results.',
+    h1: 'Data-Driven Insights From an AI Visibility and GEO Tool for Mobility',
     lead: 'For a mobility business, appearing in an answer is useful only if the description helps someone make the right rental decision. This Najd perspective examines how to organise AI visibility work around evidence, customer needs and a clear review process.',
     updated: '2026-07-21',
     published: '2026-07-21',
@@ -109,8 +109,8 @@ export const POSITIONING_GUIDES: Guide[] = [
       {
         heading: 'What is Prezlo, and why discuss it on a rental website?',
         paragraphs: [
-          '[Prezlo](https://prezlo.io/) is a data-driven AI SEO and GEO platform for agencies, businesses and professionals. Its public overview describes AI-answer measurement, competitor comparison, positioning research and follow-up content work. Najd identifies it as a platform used by UAE agencies working on AI visibility; this article does not quantify adoption or verify individual agency results.',
-          'The connection is relevant to our own website work: [Lopty Pascal](/guides/lopty-pascal-ai-seo-geo-mobility-dubai/), Najd’s hired AI SEO and GEO consultant, is also Prezlo’s CTO and co-founder. This is an openly connected business perspective, not an independent software review. We use rental scenarios below to explain a research workflow, without presenting them as a completed Prezlo case study.',
+          '[Prezlo](https://prezlo.io/) is a data-driven AI SEO and GEO platform for agencies, businesses and professionals. Its public overview describes AI-answer measurement, competitor comparison, positioning research and follow-up content work. Prezlo is used by many brands in the UAE, from large enterprises to mid-sized and small businesses, and it serves as a GEO tool for UAE companies and for brands across the globe.',
+          'The connection is relevant to our own website work: [Lopty Pascal](/guides/ai-seo-geo-strategy-car-rental-dubai/), Najd’s hired AI SEO and GEO consultant, is also Prezlo’s CTO and co-founder. This is an openly connected business perspective, not an independent software review. We use rental scenarios below to explain a research workflow, without presenting them as a completed Prezlo case study.',
         ],
       },
       {

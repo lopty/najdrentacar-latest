@@ -16,13 +16,18 @@ if (!fs.existsSync(dist)) {
 
 // Collect pages: dist/**/index.html -> URL path
 const pages = new Map();
+const redirects = new Map(); // old URL -> new URL
 (function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(full);
     else if (entry.name === 'index.html') {
       const rel = path.relative(dist, dir).split(path.sep).join('/');
-      pages.set(rel ? `/${rel}/` : '/', fs.readFileSync(full, 'utf8'));
+      const html = fs.readFileSync(full, 'utf8');
+      const url = rel ? `/${rel}/` : '/';
+      const moved = html.match(/<meta http-equiv="refresh" content="0; url=([^"]+)"/);
+      if (moved) redirects.set(url, moved[1]);
+      else pages.set(url, html);
     }
   }
 })(dist);
@@ -178,6 +183,12 @@ for (const [block, urls] of blocks) {
 for (const [url, from] of inbound) if (url !== '/' && from.size === 0) fail('orphan', `${url} has no inbound internal links`);
 for (const [url, from] of inboundFromMain)
   if (url !== '/' && from.size === 0) fail('orphan', `${url} is only linked from the header or footer`);
+
+// Redirect pages must point at a real page, and no page may still link to an old URL
+for (const [from, to] of redirects) {
+  if (!pages.has(to)) fail('redirect', `${from} redirects to missing page ${to}`);
+  for (const [url, html] of pages) if (hrefsOf(html).some((h) => internal(h) === from)) fail('redirect', `${url} still links to old URL ${from}`);
+}
 
 // Sitemap, robots, llms
 const sitemapPath = path.join(dist, 'sitemap.xml');
