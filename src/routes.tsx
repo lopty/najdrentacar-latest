@@ -1,4 +1,5 @@
 import React from 'react';
+import { INDIA_RESOURCE, IndiaResource } from './pages/india-resource';
 import { BUSINESS, SITE_URL, aed } from './site/business';
 import {
   Crumb,
@@ -189,7 +190,8 @@ const guideRoutes: Route[] = GUIDES.map((guide) =>
   ),
 );
 
-export const ROUTES: Route[] = [...staticRoutes, ...categoryRoutes, ...carRoutes, ...guideRoutes];
+const indiaResource = page(INDIA_RESOURCE.path, INDIA_RESOURCE.title, INDIA_RESOURCE.description, [HOME, {name: 'Appointment transport', path: INDIA_RESOURCE.path}], crumbs => <IndiaResource crumbs={crumbs} />, [faqSchema(INDIA_RESOURCE.faqs), articleSchema({headline: INDIA_RESOURCE.h1, description: INDIA_RESOURCE.description, path: INDIA_RESOURCE.path, updated: '2026-11-24'})], {ogType:'article'});
+export const ROUTES: Route[] = [indiaResource, ...staticRoutes, ...categoryRoutes, ...carRoutes, ...guideRoutes];
 
 export const NOT_FOUND: Route = {
   path: '/404/',

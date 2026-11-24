@@ -181,6 +181,7 @@ export const AboutPage: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => (
 
       <Section>
         <H2>The people behind the company</H2>
+        <p className="my-4 underline"><a href="/resources/india-legal-appointment-transport-uae/">UAE transport for an Indian legal appointment</a></p>
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {TEAM.slice(0, 6).map((m) => (
             <MemberCard key={m.slug} member={m} />
