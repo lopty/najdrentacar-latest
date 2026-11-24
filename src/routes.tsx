@@ -17,6 +17,7 @@ import { GUIDES, guidePath } from './content/guides';
 import { CarPage, CategoryPageView, FleetPage, HOME_FAQS, HomePage, carFaqs } from './pages/commercial';
 import { AboutPage, ContactPage, LicencePage, NotFoundPage, ReviewsPage, ServiceStandardsPage, TeamPage } from './pages/trust';
 import { GuidePage, GuidesIndexPage } from './pages/guides';
+import { StoragePage, STORAGE_FAQS } from './pages/storage';
 
 export interface Route {
   path: string;
@@ -53,6 +54,15 @@ function page(
 }
 
 const staticRoutes: Route[] = [
+  page(
+    '/car-storage-dubai/',
+    'Car Storage in Dubai, Al Quoz | Najd Rent a Car',
+    'Car storage at Najd’s Al Quoz premises in Dubai. View location photos and enquire about space, storage dates, access arrangements and current rates.',
+    [HOME, { name: 'Car storage', path: '/car-storage-dubai/' }],
+    (crumbs) => <StoragePage crumbs={crumbs} />,
+    [webPageSchema('WebPage', 'Car Storage in Dubai', '/car-storage-dubai/'), faqSchema(STORAGE_FAQS)],
+    { ogImage: '/images/najd-storage-al-quoz-exterior.png' },
+  ),
   {
     path: '/',
     title: 'Najd Rent a Car Dubai | Car Rental Since 2002',

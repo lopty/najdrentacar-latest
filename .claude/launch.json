@@ -4,8 +4,41 @@
     {
       "name": "najd-preview",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "preview", "--", "--port", "4173"],
+      "runtimeArgs": [
+        "run",
+        "preview",
+        "--",
+        "--port",
+        "4173"
+      ],
       "port": 4173
+    },
+    {
+      "name": "tuwaiq-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "C:/Users/Lopty/Desktop/App/tuwaiq-travel",
+        "run",
+        "preview",
+        "--",
+        "--port",
+        "4180",
+        "--strictPort"
+      ],
+      "port": 4180
+    },
+    {
+      "name": "abre2-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "C:/Users/Lopty/Desktop/App/abre2",
+        "run",
+        "dev"
+      ],
+      "port": 4173,
+      "url": "http://127.0.0.1:4173"
     }
   ]
 }

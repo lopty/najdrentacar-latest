@@ -129,6 +129,57 @@ export const AboutPage: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => (
       </Section>
 
       <Section>
+        <H2 id="client-network">Clients across Najd and the Al Basel Group network</H2>
+        <Prose paragraphs={['Najd works within the Al Basel Group network, with cross-selling across the group’s services. The organisations shown below are client relationships shared by Najd across that network.']} />
+        <div className="mt-6 space-y-5 rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
+          <img src="/images/clients/client-network-row-one.png" alt="Client network logos: Public Investment Fund, Raffles Hotels and Resorts, ENOC and Four Seasons" width={1358} height={200} loading="lazy" className="w-full h-auto" />
+          <img src="/images/clients/client-network-row-two.png" alt="Client network logos: Corinthia, One and Only, Boutique Group and Barrière" width={1360} height={185} loading="lazy" className="w-full h-auto" />
+        </div>
+        <ul className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm text-slate-700" aria-label="Client network organisations">
+          {['Public Investment Fund', 'Raffles Hotels & Resorts', 'ENOC', 'Four Seasons', 'Corinthia', 'One&Only', 'Boutique Group', 'Barrière'].map((name) => <li key={name}>{name}</li>)}
+        </ul>
+        <p className="mt-4 text-sm text-slate-600 max-w-3xl">These relationships span the group network; the logos do not imply that every organisation holds a direct car rental contract with Najd.</p>
+        <div className="mt-6"><LinkCards links={[
+          { href: '/corporate-car-rental-dubai/', label: 'Corporate rental services in Dubai' },
+          { href: '/guides/corporate-fleet-rental-quote-dubai/', label: 'Prepare a corporate fleet enquiry' },
+        ]} /></div>
+      </Section>
+
+      <Section>
+        <section id="leadership-gallery" aria-labelledby="leadership-gallery-heading">
+          <h2 id="leadership-gallery-heading" className="text-2xl font-semibold">Al Basel Group leadership in the community</h2>
+          <p className="mt-3 text-sm leading-relaxed">A photo gallery from gatherings and meetings attended by Basel Al Kasem, founder of Najd Rent a Car and Al Basel Group.</p>
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <img src="/assets/leadership/event-al-abbar.webp" width={640} height={853} loading="lazy" decoding="async" alt="Basel Al Kasem at a gathering with Mohamed Al Abbar" className="block h-auto w-full" />
+              <figcaption className="px-3 py-3 text-sm text-slate-700">Basel Al Kasem at a gathering with Mohamed Al Abbar</figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <img src="/assets/leadership/event-al-shafar.webp" width={640} height={853} loading="lazy" decoding="async" alt="Basel Al Kasem with Ali Al Shafar" className="block h-auto w-full" />
+              <figcaption className="px-3 py-3 text-sm text-slate-700">Basel Al Kasem with Ali Al Shafar</figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <img src="/assets/leadership/event-al-serkal.webp" width={640} height={853} loading="lazy" decoding="async" alt="Basel Al Kasem with Al Serkal" className="block h-auto w-full" />
+              <figcaption className="px-3 py-3 text-sm text-slate-700">Basel Al Kasem with Al Serkal</figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <img src="/assets/leadership/event-arif-amiri.webp" width={640} height={853} loading="lazy" decoding="async" alt="Basel Al Kasem with Arif Amiri" className="block h-auto w-full" />
+              <figcaption className="px-3 py-3 text-sm text-slate-700">Basel Al Kasem with Arif Amiri</figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <img src="/assets/leadership/event-reception.webp" width={640} height={853} loading="lazy" decoding="async" alt="Basel Al Kasem with a guest at a reception" className="block h-auto w-full" />
+              <figcaption className="px-3 py-3 text-sm text-slate-700">Basel Al Kasem with a guest at a reception</figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <img src="/assets/leadership/meeting-binghatti.webp" width={640} height={853} loading="lazy" decoding="async" alt="Basel Al Kasem with Mohamed Binghatti" className="block h-auto w-full" />
+              <figcaption className="px-3 py-3 text-sm text-slate-700">Basel Al Kasem with Mohamed Binghatti</figcaption>
+            </figure>
+          </div>
+          <p className="mt-5"><a className="font-semibold underline underline-offset-4" href="/team/">Meet the Najd team</a></p>
+        </section>
+      </Section>
+
+      <Section>
         <H2>The people behind the company</H2>
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {TEAM.slice(0, 6).map((m) => (
@@ -155,16 +206,16 @@ export const AboutPage: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => (
 
 export const TeamPage: React.FC<{ crumbs: Crumb[] }> = ({ crumbs }) => {
   const groups: { heading: string; key: TeamMember['group']; intro: string }[] = [
-    { heading: 'Leadership', key: 'leadership', intro: 'The founder and the directors who run the company day to day.' },
+    { heading: 'Leadership', key: 'leadership', intro: 'The founder and the leaders responsible for the company, marketing and VIP services.' },
     { heading: 'Management', key: 'management', intro: 'The managers responsible for operations, fleet, accounts, projects and business development.' },
-    { heading: 'Sales, accounts and fleet support', key: 'team', intro: 'The people you are most likely to speak to when you enquire, book or pay.' },
+    { heading: 'Sales, accounts and specialist support', key: 'team', intro: 'The colleagues handling enquiries, accounts and fleet support, alongside our hired digital consultant.' },
   ];
   return (
     <>
       <PageHeader
         crumbs={crumbs}
         h1="Our Team"
-        lead={`${TEAM.length} people lead and run Najd Rent a Car. These are their real names, roles and photographs, taken from the company organisation chart.`}
+        lead={`Meet ${TEAM.length} members of Najd’s leadership, operations and specialist support team. Management roles reflect the updated 2026 company presentation, with the hired consultant role confirmed separately by Najd.`}
       />
       <Container>
         {groups.map((g) => (

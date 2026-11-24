@@ -1,6 +1,7 @@
 import { BUSINESS, aed } from '../site/business';
 import { EDU_GUIDES } from './eduGuides';
 import { POSITIONING_GUIDES } from './positioningGuides';
+import { DUBAI_BUYER_GUIDES } from './dubaiBuyerGuides';
 import { carsWithRates, getCar } from '../data/cars';
 
 export interface Guide {
@@ -372,6 +373,6 @@ const CORE_GUIDES: Guide[] = [
   },
 ];
 
-export const GUIDES: Guide[] = [...CORE_GUIDES, ...EDU_GUIDES, ...POSITIONING_GUIDES];
+export const GUIDES: Guide[] = [...CORE_GUIDES, ...EDU_GUIDES, ...POSITIONING_GUIDES, ...DUBAI_BUYER_GUIDES];
 
 export const getGuide = (slug: string) => GUIDES.find((g) => g.slug === slug)!;

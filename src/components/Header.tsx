@@ -3,6 +3,9 @@ import { Menu, Phone } from 'lucide-react';
 import { NajdLogo } from './NajdLogo';
 import { BUSINESS, telLink, whatsappLink } from '../site/business';
 
+const PREZLO_BADGE_LINK = 'https://prezlo.io/portfolio/najd-rent-a-car';
+const PREZLO_BADGE_IMAGE = 'https://prezlo.io/api/badge/najd-rent-a-car';
+
 const NAV = [
   { href: '/fleet/', label: 'Fleet' },
   { href: '/luxury-car-rental-dubai/', label: 'Luxury' },
@@ -30,6 +33,9 @@ export const Header: React.FC = () => {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <a href={PREZLO_BADGE_LINK} target="_blank" rel="noopener" className="hidden xl:block shrink-0">
+            <img src={PREZLO_BADGE_IMAGE} alt="Verified on Prezlo" width={240} height={64} className="h-10 w-auto" />
+          </a>
           <a
             href={telLink}
             className="hidden xl:flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-red-700 transition-colors"
@@ -65,6 +71,9 @@ export const Header: React.FC = () => {
               ))}
               <a href={telLink} className="px-3 py-2.5 rounded-lg hover:bg-slate-50 text-red-700">
                 Call {BUSINESS.phoneDisplay}
+              </a>
+              <a href={PREZLO_BADGE_LINK} target="_blank" rel="noopener" className="px-3 py-2.5">
+                <img src={PREZLO_BADGE_IMAGE} alt="Verified on Prezlo" width={240} height={64} className="h-10 w-auto" />
               </a>
             </nav>
           </details>

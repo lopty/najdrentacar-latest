@@ -73,7 +73,7 @@ export const HomePage: React.FC = () => {
           <div className="hero-copy">
             <span className="hero-eyebrow"><span /> NAJD RENT A CAR · DUBAI</span>
             <h1>Car rental in Dubai.<br /><em>A class of its own.</em></h1>
-            <p>From a day that deserves something special to a car that feels like yours for months. Find your next drive with Najd.</p>
+            <p>Luxury, monthly and corporate car rental for journeys across Dubai. Based in Al Quoz since 2002, with delivery available by arrangement.</p>
             <div className="hero-actions"><a href="/luxury-car-rental-dubai/" className="hero-primary">Explore luxury cars <span aria-hidden="true">↗</span></a><a href="/monthly-car-rental-dubai/" className="hero-secondary">Monthly rentals <span aria-hidden="true">→</span></a></div>
             <div className="hero-footnote"><span>EST. {BUSINESS.foundingYear}</span><span>Al Quoz, Dubai</span><a href="/licence/">Licensed. Established. Local.</a></div>
           </div>
@@ -135,7 +135,21 @@ export const HomePage: React.FC = () => {
 
         <Section>
           <H2>More ways to rent</H2>
+          <p className="mb-5 text-sm text-slate-700">Need space for your own vehicle? <a href="/car-storage-dubai/" className="text-[#C5221F] underline underline-offset-4">Enquire about car storage at Najd’s Al Quoz premises.</a></p>
           <LinkCards links={otherCats.map((c) => ({ href: categoryPath(c.slug), label: c.h1 }))} />
+          <p className="mt-5 text-sm"><a href="/about/#client-network" className="text-[#C5221F] underline underline-offset-4">Explore clients across Najd and the Al Basel Group network</a></p>
+        </Section>
+
+        <Section>
+          <H2>Plan your rental across Dubai</H2>
+          <Prose paragraphs={['Our Al Quoz office is the starting point for services across Dubai. Tell us where you need the car, when you need it and how you plan to use it. We confirm delivery arrangements and the quote for your booking.']} />
+          <div className="mt-5">
+            <LinkCards links={[
+              { href: '/guides/corporate-fleet-rental-quote-dubai/', label: 'Request a corporate fleet quote', note: 'Vehicle mix, drivers and contract questions' },
+              { href: '/guides/executive-guest-transport-dubai/', label: 'Plan executive and guest transport', note: 'Itinerary, passengers and chauffeur requirements' },
+              { href: '/guides/car-rental-mileage-allowance-dubai/', label: 'Compare rental mileage allowances', note: 'Daily and monthly distances explained' },
+            ]} />
+          </div>
         </Section>
 
         <Section>

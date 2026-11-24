@@ -5,6 +5,7 @@ import { CATEGORIES, categoryPath } from '../content/categories';
 import { GUIDES, guidePath } from '../content/guides';
 
 const COMPANY_LINKS = [
+  { href: '/car-storage-dubai/', label: 'Car Storage in Dubai' },
   { href: '/about/', label: 'About Najd Rent a Car' },
   { href: '/team/', label: 'Our Team' },
   { href: '/licence/', label: 'Licence and Verification' },
